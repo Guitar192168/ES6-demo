@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function* gen() {
+        console.log('123')
+        yield 123555
+    }
+
+
+    let iterator = gen()
+    // console.log(iterator)
+    console.log(iterator.next())
+    console.log(iterator.next())
+
+
+    // 123
+    // {value: 123555, done: false}
+    // {value: undefined, done: true}
+
+
+    /**
+     * demo2
+     */
+    console.log('demo2------------------')
+
+    function* gen2(arg) {
+        console.log(arg)
+        let one = yield 1
+        console.log(one)
+        let two = yield 2
+        console.log(two)
+        let three = yield 3
+        console.log(three)
+    }
+
+    let iterator2 = gen2('传值arg')
+    console.log(iterator2.next('AAA'))
+    console.log(iterator2.next('BBB'))
+    console.log(iterator2.next('CCC'))
+    console.log(iterator2.next('DDD'))
+    console.log(iterator2.next('EEE'))
+
+
+    //这里传的AAA并没有被打印
+
+    // 往第二个next里传参，会作为第一个yield的返回值
+
+    // 往第3个next里传参，会作为第2个yield的返回值
+
+
+</script>
+</body>
+</html>

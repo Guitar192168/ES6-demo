@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function demo(){
+        console.log(arguments)
+    }
+
+    demo(1,2,3,4)
+
+
+    function demo2(a,b,...args){
+        console.log(args)
+    }
+    demo2(1,2,3,4)
+</script>
+</body>
+</html>

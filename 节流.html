@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="demo">
+<script>
+    var demo = document.getElementById('demo')
+
+    var counter = 0;
+
+    function counterFn() {
+        counter++;
+        console.log('共执行了' + counter)
+    }
+
+    function throttle(fn, delay) {
+        var last = 0
+        return function () {
+            var _arguments = arguments
+            var now = new Date().getTime()
+            if (now - last > delay) {
+                last = now;
+                fn.apply(this, _arguments);
+            }
+        }
+
+    }
+
+
+    demo.oninput = throttle(counterFn, 1000, '澳龙沙比')
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = ['你', '好', '啊']
+
+    let iterator = arr[Symbol.iterator]()
+
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+    console.log(iterator.next());
+
+    // {value: "你", done: false}
+    // {value: "好", done: false}
+    // {value: "啊", done: false}
+    // {value: undefined, done: true}
+
+</script>
+
+</body>
+</html>

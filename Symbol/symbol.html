@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let s = Symbol();
+    console.log(s, typeof s)
+
+    let s1 = Symbol('澳龙')
+    let s2 = Symbol('澳龙')
+    console.log(s1 === s2)//都为false
+    console.log(s1 == s2)//都为false
+
+    //Symbol.for创建的，是可以相等的。
+    let s3 = Symbol.for('澳龙')
+    let s4 = Symbol.for('澳龙')
+    console.log(s3 === s4)//都是true
+    console.log(s3 == s4)
+
+    // 不能与其他数据进行运算
+    let s5 = s4 + 100
+</script>
+</body>
+</html>

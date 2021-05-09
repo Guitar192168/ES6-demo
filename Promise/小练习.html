@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    let p = new Promise(function (resolve, reject) {
+        setTimeout(() => {
+            resolve(2)
+        }, 1000)
+    })
+
+
+    // .then返回的也是个promise对象，对象状态由回调函数的执行结果决定
+
+    // 1.如果回调函数返回的是  非promise对象的， 返回值为对象的成功的值
+
+    let result = p.then(value => {
+        console.log(value)
+        // return 111
+        return new Promise((resolve, reject) => {
+            // resolve('okok')
+            reject('ok222ok2')
+        })
+    }, reason => {
+        console.log(reason, '报错的reason')
+    })
+
+    console.log(result)
+</script>
+</body>
+</html>

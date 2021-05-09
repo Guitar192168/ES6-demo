@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function data5() {
+        console.log(arguments)
+        console.log(arguments.callee)
+    }
+
+    data5(1, 2, 3, 4)
+
+
+    /**
+     * ES6引入 rest 参数，用于获取函数的实参，用来代替arguments
+     * 而且rest获取的参数是数组，arguments是类数组
+     * rest必须写最后面
+     *  ...rest
+     * @param args
+     */
+    function data6(...args) {
+        console.log(args)
+    }
+
+    data6(1, 2, 3, 4, 5)
+
+
+    function data7(x, y, ...z) {
+        console.log(x)
+        console.log(y)
+        console.log(z)
+    }
+
+    data7(1, 2, 3, 4, 5)
+
+
+    function data8(x, ...z, y) {
+        console.log(x)
+        console.log(y)
+        console.log(z)
+    }
+
+    data8(1, 2, 3, 4, 5)
+
+
+</script>
+</body>
+</html>

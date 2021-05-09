@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="demo">
+
+<script>
+    var demo = document.getElementById('demo')
+
+    var counter = 0
+
+    function counterFn() {
+        counter++
+        console.log('执行了' + counter)
+    }
+
+    function debounce(fn, delay,) {
+        var timer = null
+        return function () {
+            if (timer) clearTimeout(timer)
+            var _arguments = arguments
+            var _t = this;
+            timer = setTimeout(() => {
+                fn.apply(_t, _arguments)
+            }, delay)
+        }
+    }
+
+    demo.addEventListener('input', debounce(counterFn, 1000))
+
+    //错误写法
+    // demo.addEventListener('input', function () {
+    //     debounce(counterFn, 1000)
+    // })
+    //
+
+    // demo.oninput = debounce(counterFn, 500, '澳龙沙比')
+</script>
+</body>
+</html>

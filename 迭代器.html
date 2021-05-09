@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let names = ['a', 'b', 'c']
+
+    let iterator = names[Symbol.iterator]();
+    console.log(iterator.next())
+
+
+    new Promise((resolve, reject) => {
+        resolve(1)
+    }).then((d) => {
+        console.log('d:', d)
+    }).catch((e) => {
+        console.error(e)
+    })
+
+
+    new Promise((resolve, reject) => {
+        throw 2
+    }).then(res => {
+        console.log(res,'res')
+    }).catch(value => {
+        console.log(value,'value')
+    })
+</script>
+</body>
+</html>

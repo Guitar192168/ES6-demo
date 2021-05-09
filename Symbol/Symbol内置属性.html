@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    class Person {
+        static [Symbol.hasInstance](param){
+            console.log(param)
+            console.log('我拿来检测类型')
+        }
+    }
+
+    let a = {}
+    let b = []
+
+    console.log(a instanceof Person)
+    console.log(b instanceof Person)
+
+
+    var arr = [1,2,3]
+    var arr2 = [4,5,6]
+
+
+    //表示对象用于Array.prototype.concat  控制concat是否展开
+    // false不展开
+
+
+    //Symbol.isConcatSpreadable用来做对象的属性了  这里
+    arr[Symbol.isConcatSpreadable] = false;
+
+    console.log(arr.concat(arr2))
+</script>
+</body>
+</html>

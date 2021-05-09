@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let game = {
+        up: function () {
+            console.log('老up')
+        },
+        down: function () {
+            console.log('老down')
+        }
+    }
+
+
+    let methods = {
+        up: Symbol(),
+        down: Symbol()
+    }
+
+    game[methods.up] = function () {
+        console.log('加上了 up')
+    }
+
+    game[methods['down']] = function () {
+        console.log('down方法')
+    }
+
+    game[methods.up]()
+
+    // demo2
+    let test = Symbol('say')
+
+    let person = {
+        name: '杨荆',
+        [test]: function () {
+            console.log('我可以')
+        },
+        [Symbol('eat')]: function () {
+            console.log('淦饭')
+        }
+    }
+</script>
+</body>
+</html>
