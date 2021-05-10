@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // async function demo() {
+        //     // async返回一个promise对象，
+        //     // promise对象的结果由async函数执行的返回值决定
+        //     // 如果返回的结果不是一个promise对象，那么 promise是一个成功的promise
+
+        //     // 
+
+        //     return 1
+        // }
+
+        // console.log(demo());
+
+
+        let p = new Promise((resolve, reject) => {
+            rejct(1)
+        })
+
+        async function person() {
+            try {
+                const result = await p
+                console.log(result);
+            } catch (e) {
+                // catch这里需要传值
+                console.warn(e)
+            }
+        }
+        person()
+
+
+    </script>
+</body>
+
+</html>
