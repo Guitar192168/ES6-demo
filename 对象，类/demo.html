@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Phone(brand) {
+        //     this.brand = brand;
+        // }
+
+        // Phone.prototype.call = function () {
+        //     console.log('我可以');
+        // }
+
+        // let phone = new Phone('Mi')
+
+        // phone.call()
+        // console.log(phone);
+
+        class Phone {
+            constructor(brand) {
+                this.brand = brand;
+            }
+
+            call() {
+                console.log('俺可以2');
+            }
+        }
+   
+
+        let phone = new Phone('Mi')
+
+        console.log(phone);
+        phone.call()
+
+
+    </script>
+</body>
+
+</html>

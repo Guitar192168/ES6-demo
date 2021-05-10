@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            // 这里可以省略constructor
+            get price() {
+                console.log('被获取了');
+                return '这里是被获取了的，return'
+            }
+
+            set price(newVal) {
+                console.log('被修改了');
+            }
+
+        }
+
+        // Uncaught SyntaxError: Setter must have exactly one formal parameter.
+        // set这里是需要添加参数的
+
+
+        let p = new Person()
+
+        console.log(p.price);
+
+        p.price = 222
+    </script>
+</body>
+
+</html>
