@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./promise.js"></script>
+</head>
+<body>
+<script>
+    let p = new Promise((resolve, reject) => {
+        // resolve(2)
+        // reject(22)
+        // throw(2)
+        setTimeout(() => {
+            // resolve(2)
+            reject(2)
+        },1000)
+
+    })
+
+
+    p.then(value => {
+        console.log(value)
+    }, reason => {
+        console.warn(reason)
+    })
+    console.log(p)
+
+</script>
+</body>
+</html>

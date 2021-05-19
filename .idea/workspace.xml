@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="补充async">
-      <change afterPath="$PROJECT_DIR$/Promise/模拟ajax请求.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/动态import/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/动态import/hello.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/动态import/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Promise/笔记.md" beforeDir="false" afterPath="$PROJECT_DIR$/Promise/笔记.md" afterDir="false" />
+    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Promise/手写promise/promise.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Promise/手写promise/原版promise.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +14,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -49,6 +47,8 @@
       <updated>1620656120008</updated>
       <workItem from="1620656121238" duration="2142000" />
       <workItem from="1620811673201" duration="2981000" />
+      <workItem from="1621305762329" duration="181000" />
+      <workItem from="1621351747157" duration="3500000" />
     </task>
     <task id="LOCAL-00001" summary="补充async">
       <created>1620656156962</created>
@@ -57,7 +57,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620656156962</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="补充async">
+      <created>1621305771183</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621305771183</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
