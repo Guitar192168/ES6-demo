@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let person = {
+        name: 123
+    }
+
+    //第三个参数总是指向读操作所在的那个对象，一般情况下就算proxy实例
+    let proxy22 = new Proxy(person, {
+        get: function (target, propertyKey, receiver) {
+            if (propertyKey in target) {
+                return target[propertyKey]
+            }else{
+                return receiver
+            }
+        }
+    })
+
+    console.log(proxy22.name);
+    console.log(proxy22.age);
+    console.log(proxy22.age === proxy22)
+
+
+    //
+    let Car = new Proxy({},{
+        get:function (target,prop,receiver){
+            return '12311'
+        }
+    })
+
+    let car = Object.create(Car)
+    console.log(car.name);
+
+
+    var pipe = function (value) {
+        var funcStack = [];
+        var oproxy = new Proxy({} , {
+            get : function (pipeObject, fnName) {
+                if (fnName === 'get') {
+                    console.log(funcStack,'funcStack')
+                    return funcStack.reduce(function (val, fn) {
+                        console.log(val,'val',fn,'fn')
+                        return fn(val);
+                    },value);
+                }
+                console.log(window[fnName],'window[fnName]');
+                // debugger
+                funcStack.push(window[fnName]);
+                return oproxy;
+            }
+        });
+
+        return oproxy;
+    }
+
+    var double = n => n * 2;
+    var pow    = n => n * n;
+    var reverseInt = n => n.toString().split("").reverse().join("") | 0;
+
+    pipe(3).double.pow.reverseInt.get; // 63
+
+    const dom = new Proxy({}, {
+        get(target, property) {
+            return function(attrs = {}, ...children) {
+                const el = document.createElement(property);
+                for (let prop of Object.keys(attrs)) {
+                    el.setAttribute(prop, attrs[prop]);
+                }
+                for (let child of children) {
+                    if (typeof child === 'string') {
+                        child = document.createTextNode(child);
+                    }
+                    el.appendChild(child);
+                }
+                return el;
+            }
+        }
+    });
+
+    const el = dom.div({},
+        'Hello, my name is ',
+        dom.a({href: '//example.com'}, 'Mark'),
+        '. I like:',
+        dom.ul({},
+            dom.li({}, 'The web'),
+            dom.li({}, 'Food'),
+            dom.li({}, '…actually that\'s it')
+        )
+    );
+
+    document.body.appendChild(el);
+</script>
+</body>
+</html>
