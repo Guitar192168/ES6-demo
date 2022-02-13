@@ -23,7 +23,10 @@
 
         class SmartPhone extends Phone {
             constructor(brand, price, color, size) {
+                //super 父类内部的this指向的是子类的实例对象
+                //只能用在子类的constructor内
                 super(brand, price);
+
                 this.color = color;
                 this.size = size;
             }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>串联多个任务</title>
+</head>
+
+<body>
+    <script>
+        const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('我是成功的promise')
+            }, 1000)
+        })
+
+
+        // promise的then()返回一个新的promise，可以形成.then的链式调用
+        p.then(value => {
+            console.log(value);
+            return new Promise(resolve => {
+                resolve('我是返回的结果')
+            })
+        }).then(value => {
+            console.log(value, '222');
+            // return 1
+        }).then(value => {
+            // 是由返回的结果决定
+            console.log(value, '333');
+        })
+    </script>
+</body>
+
+</html>

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/templateLanguages.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proxy/demo.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proxy/get.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proxy/set.html" afterDir="false" />
+    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="认识proxy的set和get">
+      <change afterPath="$PROJECT_DIR$/Promise/测试题.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/对象，类/ES6的继承.html" beforeDir="false" afterPath="$PROJECT_DIR$/对象，类/ES6的继承.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/迭代器/自定义迭代器方法.html" beforeDir="false" afterPath="$PROJECT_DIR$/迭代器/自定义迭代器方法.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +61,13 @@
       <workItem from="1620811673201" duration="2981000" />
       <workItem from="1621305762329" duration="181000" />
       <workItem from="1621351747157" duration="3527000" />
-      <workItem from="1621431685682" duration="6737000" />
+      <workItem from="1621431685682" duration="6767000" />
+      <workItem from="1621475055939" duration="25000" />
+      <workItem from="1621758108584" duration="934000" />
+      <workItem from="1621852281865" duration="2030000" />
+      <workItem from="1622180333964" duration="682000" />
+      <workItem from="1622298584980" duration="2979000" />
+      <workItem from="1622435766399" duration="689000" />
     </task>
     <task id="LOCAL-00001" summary="补充async">
       <created>1620656156962</created>
@@ -85,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621392330233</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="认识proxy的set和get">
+      <created>1621474338913</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1621474338913</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,7 +106,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="补充async" />
     <MESSAGE value="手写promise前半部分" />
-    <option name="LAST_COMMIT_MESSAGE" value="手写promise前半部分" />
+    <MESSAGE value="认识proxy的set和get" />
+    <option name="LAST_COMMIT_MESSAGE" value="认识proxy的set和get" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

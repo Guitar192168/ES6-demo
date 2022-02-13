@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // resolve('成功的promise')
+                // 注意这个是 throw 一个 Error对象的实例  new Error
+                // throw new Error(1)
+                reject(2)
+            }, 1000)
+        })
+
+        p.then(value => {
+            console.log(value);
+        }).then(value => {
+            console.log(value);
+        }).then(value => {
+            console.log(value);
+        }).catch(reason => {
+            // console.log(reason);
+            console.warn(reason);
+        })
+    </script>
+</body>
+
+</html>

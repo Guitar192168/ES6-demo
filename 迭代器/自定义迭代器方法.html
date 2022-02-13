@@ -7,8 +7,34 @@
 <body>
 <script>
 
+    // let obj = {
+    //     name: '澳龙傻逼',
+    //     age: [
+    //         '1',
+    //         '2',
+    //         'a',
+    //         'b'
+    //     ],
+    //     [Symbol.iterator]: function () {
+    //         let _t = this;
+    //         let index = 0;
+    //         return {
+    //             next: function () {
+    //                 let length = _t.age.length;
+    //                 if (index < length) {
+    //                     let result = {value: _t.age[index], done: false}
+    //                     index++;
+    //                     return result
+    //                 } else {
+    //                     return {value: undefined, done: true}
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
+
     let obj = {
-        name: '杨',
+        name: '澳龙傻逼',
         age: [
             '1',
             '2',
@@ -20,9 +46,10 @@
             let index = 0;
             return {
                 next: function () {
-                    let length = _t.age.length;
-                    if (index < length) {
-                        let result = {value: _t.age[index], done: false}
+                    let keys = Object.keys(_t)
+                    // let length = _t.age.length;
+                    if (index < keys.length) {
+                        let result = {value: _t[keys[index]], done: false}
                         index++;
                         return result
                     } else {
