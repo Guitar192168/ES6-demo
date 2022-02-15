@@ -13,22 +13,23 @@
 
     <script>
         const p = new Promise((resolve, reject) => {
-            // setTimeout(() =>{
+            setTimeout(() =>{
                 resolve('Ok')
                 // reject('No')
                 // throw 123
-            // }, 3000)
+            }, 1000)
         })
 
-        console.log(p);
+        console.log(p,'p');
 
         const result = p.then(value => {
             console.log(value);
+            return 123
         }, reason => {
-            console.log(reason);
+            console.warn(reason);
         })
 
-        console.log(result);
+        console.log(result,'result');
     </script>
 </body>
 

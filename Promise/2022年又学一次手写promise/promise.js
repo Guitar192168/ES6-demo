@@ -4,6 +4,9 @@ function Promise(executor) {
     this.PromiseStatus = 'pending'
     this.PromiseResult = undefined
 
+    // 指定回调，就算promise内部是异步任务，等到状态改变了再来执行.then里面的回调方法
+    this.callBack = {}
+
     // this指向有问题
     // let self = this
     // function resolve(value) {
@@ -21,11 +24,13 @@ function Promise(executor) {
         if (this.PromiseStatus !== 'pending') return
         this.PromiseStatus = 'fulfilled'
         this.PromiseResult = value
+        this.callBack.onResolved(value)
     }
     const reject = (reason) => {
         if (this.PromiseStatus !== 'pending') return
         this.PromiseStatus = 'rejected'
         this.PromiseResult = reason
+        this.callBack.onRejected(reason)
     }
 
     // try加在执行   执行器函数前面即可
@@ -41,15 +46,22 @@ function Promise(executor) {
 
 
 Promise.prototype.then = function (onResolved, onRejected) {
-
-
     return new Promise((resolve, reject) => {
         if (this.PromiseStatus === 'fulfilled') {
-            onResolved()
+            // 调用回调函数
+            onResolved(this.PromiseResult)
         }
 
         if (this.PromiseStatus === 'rejected') {
-            onRejected()
+            //调用回调函数
+            onRejected(this.PromiseResult)
+        }
+
+        if (this.PromiseStatus === 'pending') {
+            this.callBack = {
+                onResolved: onResolved,
+                onRejected: onRejected
+            }
         }
     })
 }
