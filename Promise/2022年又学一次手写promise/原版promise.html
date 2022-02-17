@@ -13,23 +13,42 @@
 
     <script>
         const p = new Promise((resolve, reject) => {
-            setTimeout(() =>{
+            setTimeout(() => {
                 resolve('Ok')
                 // reject('No')
                 // throw 123
             }, 1000)
         })
 
-        console.log(p,'p');
+        console.log(p, 'p');
 
-        const result = p.then(value => {
+        // const result = p.then(value => {
+        //     alert(value);
+        //     return 123
+        // }, reason => {
+        //     console.warn(reason);
+        // })
+
+        // 指定多个回调
+        const result2 = p.then(value => {
             console.log(value);
-            return 123
+            return '成功的回调'
+            // throw 123
+            // return new Promise((resolve, reject) => {
+            //     resolve(2)
+            //     // reject(33)
+            // })
         }, reason => {
             console.warn(reason);
+            // return 789
+            return new Promise((resolve, reject) => {
+                // resolve(123)
+                reject(456)
+            })
         })
 
-        console.log(result,'result');
+        // console.log(result,'result');
+        console.log(result2, 'result2');
     </script>
 </body>
 
