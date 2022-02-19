@@ -13,14 +13,15 @@
 
     <script>
         const p = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve('Ok')
-                // reject('No')
-                // throw 123
-            }, 1000)
+            // setTimeout(() => {
+            resolve('Ok')
+            console.log(111)
+            // reject('No')
+            // throw 123
+            // }, 1000)
         })
 
-        console.log(p, 'p');
+        // console.log(p, 'p');
 
         // const result = p.then(value => {
         //     alert(value);
@@ -29,26 +30,109 @@
         //     console.warn(reason);
         // })
 
-        // 指定多个回调
+        // 二部分
         const result2 = p.then(value => {
-            console.log(value);
-            return '成功的回调'
+            console.log(value, '2222');
+            // return '成功的回调'
             // throw 123
-            // return new Promise((resolve, reject) => {
-            //     resolve(2)
-            //     // reject(33)
-            // })
+            return new Promise((resolve, reject) => {
+                resolve(2)
+                // reject(33)
+            })
         }, reason => {
             console.warn(reason);
+            // throw  new Error('29999')
             // return 789
-            return new Promise((resolve, reject) => {
-                // resolve(123)
-                reject(456)
-            })
+            // return new Promise((resolve, reject) => {
+            //     // resolve(123)
+            //     reject(456)
+            // })
+        }).catch(reason => {
+            // 暂时没执行
+            console.log(reason, 'reason');
         })
 
         // console.log(result,'result');
-        console.log(result2, 'result2');
+        console.log(result2, 'result233333');
+
+        // 指定多个回调
+
+        // 三. catch方法
+        // const result3 = p.catch(reason => {
+        //     console.log(reason, 'reason');
+        //     return 1
+        // })
+        // console.log(result3, 'result3')
+
+        // // 四.异常穿透
+        // const result4 = p.then(value => {
+        //     console.log(value, '111');
+        //     throw 111
+        // }, reason => { //约等于在这儿指定了失败的回调
+        //     throw reason
+        // }).then(value => {
+        //     console.log(value, '222');
+        // }).then(value => {
+        //     console.log(value, '333');
+        // }).catch(reason => {
+        //     console.warn(reason, '我是异常穿透的reason');
+        // })
+
+        // console.log(result4);
+
+        // // 五. 值传递
+        // const result5 = p.then()
+        // .then(value => {
+        //     console.log(value, '222');
+        // }).then(value => {
+        //     console.log(value, '333');
+        // }).catch(reason => {
+        //     console.warn(reason, '我是异常穿透的reason');
+        // })
+
+        // console.log(result5);
+
+        // 函数对象的方法，不是实例对象上的方法
+        // 六. Promise.resolve
+        // const result6 = Promise.resolve('函数对象上的ok')
+        // const result6 = Promise.resolve(new Promise((resolve, reject) => {
+        //     reject(1223)
+        // }))
+
+        // const result6 = Promise.resolve(Promise.resolve(1212112))
+        // const result6 = Promise.reject(123)
+        // const result6 = Promise.reject(Promise.resolve(12311))
+
+        // console.log(result6);
+
+        // 七. Promise.all方法
+
+        // const res1 = Promise.resolve(1)
+        // const res2 = Promise.reject(2)
+        // const res3 = Promise.resolve(3)
+        // const res1 = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve(1)
+        //     }, 1000)
+        // })
+        // const res2 = Promise.resolve(2)
+        // const res3 = Promise.resolve(3)
+
+        // const res4 = Promise.all([res1, res2, res3])
+        // console.log(res4);
+
+
+        //  八. Promise.race
+        // const res1 = Promise.resolve(1)
+        // const res1 = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve(1)
+        //     }, 1000)
+        // })
+        // const res2 = Promise.reject(2)
+        // const res3 = Promise.resolve(3)
+        // const res4 = Promise.race([res1, res2, res3])
+        // console.log(res4);
     </script>
 </body>
 
