@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    async function foo() {
+        // await右侧是非promise的值，则直接返回这个值
+        // const res2 = await 1
+
+        //如果右侧是promise对象，则返回的是promise成功的值
+        const res2 = await Promise.resolve(111)
+        console.log(res2)
+
+
+        try {
+            // 如果是失败的promise，则通过try catch进行捕获
+            const res3 = await Promise.reject(3333)
+
+            // 这种写不了
+            // const res3 = await throw new Error(12333)
+            console.log(res3)
+        } catch (e) {
+            console.log(e)
+        }
+        // return res2
+    }
+
+    const result = foo()
+    // console.log(result)
+
+</script>
+</body>
+</html>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="认识proxy的set和get">
+    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Promise/05_async.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Promise/07_await.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +67,7 @@
       <workItem from="1622180333964" duration="682000" />
       <workItem from="1622298584980" duration="2979000" />
       <workItem from="1622435766399" duration="689000" />
-      <workItem from="1645265469286" duration="10742000" />
+      <workItem from="1645265469286" duration="11594000" />
     </task>
     <task id="LOCAL-00001" summary="补充async">
       <created>1620656156962</created>
@@ -95,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621474338913</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: 第二次手写">
+      <created>1645284811296</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1645284811296</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,7 +114,8 @@
     <MESSAGE value="补充async" />
     <MESSAGE value="手写promise前半部分" />
     <MESSAGE value="认识proxy的set和get" />
-    <option name="LAST_COMMIT_MESSAGE" value="认识proxy的set和get" />
+    <MESSAGE value="feat: 第二次手写" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 第二次手写" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

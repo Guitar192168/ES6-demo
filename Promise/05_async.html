@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    async function foo() {
+        // return 1
+        // return Promise.resolve(123)
+        // return Promise.reject(123)
+        throw 1234
+    }
+
+    // async的返回值跟 .then的返回值类似
+
+    const res = foo()
+    console.log(res)
+</script>
+</body>
+</html>
