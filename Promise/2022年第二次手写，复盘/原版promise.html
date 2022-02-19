@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script src="./promise.js"></script>
+<script>
+    const p = new Promise((resolve, reject) => {
+        // setTimeout(() => {
+        // resolve(123)
+        reject(456)
+        // throw 123
+        // }, 1000)
+    })
+
+    // console.log(p, 'p')
+
+    //指定回调函数
+    const result = p.then(value => {
+        console.log(value, '成功的value')
+        // throw 124
+        return '成功的回调的返回值'
+    }, reason => {
+        //这里的reason已经拦到了
+        console.log(reason, '失败的reason')
+        return '失败的回调的返回值'
+    }).then(value => {
+        console.log(value, '链式调用的value2')
+    }).then(value => {
+        console.log(value, '链式调用的value3')
+    }).catch(reason => {
+        console.log(reason, '链式调用的reason')
+    })
+
+    // .then(value => {
+    //     console.log(value, '我是链式调用的value')
+    // })
+
+    console.log(result, 'result')
+    //
+    // //回调函数 -- 自己的指定多个回调函数，如果不处理就会覆盖前面的回调函数
+    // p.then(value => {
+    //     console.log(value, '我是指定的多个回调函数的value')
+    // }, reason => {
+    //     console.log(reason, '我是指定的多个回调函数的reason')
+    // })
+    //
+    // const result2 = p.then(value => {
+    //     console.log(value, '第三个来自catch')
+    // }).catch(reason => {
+    //     console.log(reason, '我是catch的reason')
+    // })
+    //
+    // console.log(result2)
+
+    // const result3 = Promise.resolve(123)
+    const result3 = Promise.resolve(new Promise(resolve => {
+        setTimeout(() => {
+            resolve(121212)
+        }, 1000)
+    }))
+
+    // const result3 = Promise.resolve(Promise.resolve(121211212))
+    console.log(result3, 'Promise.resolve的值')
+
+
+    const result4 = Promise.reject('reject12121')
+    console.warn(result4, 'Promise.reject的报错')
+
+    const res1 = Promise.resolve(1)
+    const res2 = Promise.reject(2)
+    const res3 = Promise.resolve(3)
+
+    const result5 = Promise.all([res1, res2, res3])
+    console.log(result5, 'Promise.all的结果')
+
+    const result6 = Promise.race([res2, res1, res3])
+    console.log(result6, 'Promise.race的结果')
+</script>
+</body>
+</html>
