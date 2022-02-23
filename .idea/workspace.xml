@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="认识proxy的set和get">
-      <change afterPath="$PROJECT_DIR$/Promise/测试题.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/练习题/数组/02_forEach.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/对象，类/ES6的继承.html" beforeDir="false" afterPath="$PROJECT_DIR$/对象，类/ES6的继承.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/迭代器/自定义迭代器方法.html" beforeDir="false" afterPath="$PROJECT_DIR$/迭代器/自定义迭代器方法.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Promise/2022年又学一次手写promise/promise.js" beforeDir="false" afterPath="$PROJECT_DIR$/Promise/2022年又学一次手写promise/promise.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +67,7 @@
       <workItem from="1622180333964" duration="682000" />
       <workItem from="1622298584980" duration="2979000" />
       <workItem from="1622435766399" duration="689000" />
+      <workItem from="1645609645892" duration="1587000" />
     </task>
     <task id="LOCAL-00001" summary="补充async">
       <created>1620656156962</created>

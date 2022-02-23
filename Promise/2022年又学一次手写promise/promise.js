@@ -30,6 +30,7 @@ function Promise(executor) {
         // }
         this.callBacks.forEach(item => {
             item.onResolved(value)
+            debugger
         })
     }
     const reject = (reason) => {
@@ -58,6 +59,7 @@ function Promise(executor) {
 
 Promise.prototype.then = function (onResolved, onRejected) {
     return new Promise((resolve, reject) => {
+        const that = this;
         // try { 不用再try catch了  执行器函数那里的try catch已经拦截到了
         if (this.PromiseStatus === 'fulfilled') {
             // 调用回调函数
@@ -106,7 +108,10 @@ Promise.prototype.then = function (onResolved, onRejected) {
 
         if (this.PromiseStatus === 'pending') {
             this.callBacks.push({
-                onResolved: onResolved,
+                onResolved: function(){
+                    onResolved(that.PromiseResult)
+                    debugger
+                },
                 onRejected: onRejected
             })
         }
