@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var freezeDemo = (obj) => {
+        Object.freeze(obj)
+        Object.keys(obj).forEach(item => {
+            // freezeDemo(item)
+            // 不能直接调用的
+            if (typeof item === 'object') {
+                freezeDemo(item)
+            }
+        })
+    }
+
+
+    const a = {name: {sex: 1}}
+    freezeDemo(a)
+    // Object.freeze(a)
+
+    //无效
+    // a.name = {age: 2}
+    a.name.sex = 2
+    console.log(a)
+</script>
+</body>
+</html>

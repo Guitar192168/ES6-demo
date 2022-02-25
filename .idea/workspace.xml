@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="feat: 补充async和await">
-      <change afterPath="$PROJECT_DIR$/axios/db.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/axios/index.html" afterDir="false" />
+    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/01_let和const/01_let和var的循环.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/01_let和const/02_const.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Promise/07_await.html" beforeDir="false" afterPath="$PROJECT_DIR$/Promise/07_await.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +68,8 @@
       <workItem from="1622180333964" duration="682000" />
       <workItem from="1622298584980" duration="2979000" />
       <workItem from="1622435766399" duration="689000" />
-      <workItem from="1645265469286" duration="13519000" />
+      <workItem from="1645265469286" duration="13559000" />
+      <workItem from="1645620903565" duration="3378000" />
     </task>
     <task id="LOCAL-00001" summary="补充async">
       <created>1620656156962</created>
@@ -113,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645285596249</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: 补充本地服务器的启动方式">
+      <created>1645402637692</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1645402637692</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -125,7 +132,8 @@
     <MESSAGE value="认识proxy的set和get" />
     <MESSAGE value="feat: 第二次手写" />
     <MESSAGE value="feat: 补充async和await" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 补充async和await" />
+    <MESSAGE value="feat: 补充本地服务器的启动方式" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 补充本地服务器的启动方式" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
