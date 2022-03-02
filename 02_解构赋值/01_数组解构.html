@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <script>
+        // 这个属于不完全解构
+        let [a, [b], c] = [1, [2, 3], 4]
+        // let [a, b, c] = [1, [2, 3], 4]
+        console.log(a, b, c)
+
+        let [foo, [bar, baz]] = [1, [[2], 3]]
+        console.log(foo)
+        console.log(bar)
+        console.log(baz)
+
+        let [d, [[e], f]] = [1, [[2], 3]]
+        console.log(d)
+        console.log(e)
+        console.log(f)
+
+        //    set结构的也可以解构
+        let [x, y, z] = new Set([1, 2, 3])
+        console.log(x, y, z)
+
+        // 默认值
+        let [g = 1] = [undefined]
+        console.log(g, '默认值与 undefined');
+        let [h = 1] = [null]
+        console.log(h,'默认值 与null');
+    </script>
+</body>
+
+</html>
