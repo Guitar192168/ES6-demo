@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/01_let和const/01_let和var的循环.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/01_let和const/02_const.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,6 +66,7 @@
       <workItem from="1622435766399" duration="689000" />
       <workItem from="1645265469286" duration="13559000" />
       <workItem from="1645620903565" duration="3378000" />
+      <workItem from="1646319079625" duration="597000" />
     </task>
     <task id="LOCAL-00001" summary="补充async">
       <created>1620656156962</created>
