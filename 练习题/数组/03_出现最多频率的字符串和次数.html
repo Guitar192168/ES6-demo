@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = ['2', '2', '1', '1', '3', '3', '3', '1', '1', '9','20','333']
+
+        function getStrAndTime(arr) {
+            let obj = {}
+            arr.forEach(item => {
+                if (!obj.hasOwnProperty(item)) {
+                    obj[item] = 1
+                } else {
+                    obj[item]++
+                }
+            })
+
+
+            // let num = Math.max(...Object.values(obj))
+            // let value = Object.keys(obj)[Object.values(obj).indexOf(num)]
+
+            let num = Object.keys(obj)[0]
+            let value = Object.values(obj)[0]
+         
+
+            console.log(obj, '最多次数的值是' + value, '次数是' + num,);
+
+        }
+
+        getStrAndTime(arr)
+
+        let demo = []
+        arr.forEach(item => {
+            demo.push(item)
+        })
+        console.log(demo);
+    </script>
+</body>
+
+</html>
