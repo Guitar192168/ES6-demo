@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/02_解构赋值/01_数组解构.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="feat: 补充map和forEach" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,6 +66,7 @@
       <workItem from="1645609645892" duration="1614000" />
       <workItem from="1645665705087" duration="1478000" />
       <workItem from="1645667696205" duration="86000" />
+      <workItem from="1646210025866" duration="155000" />
     </task>
     <task id="LOCAL-00001" summary="补充async">
       <created>1620656156962</created>
