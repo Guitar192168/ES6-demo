@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="">
+    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="feat: 补充预编译错题">
+      <change afterPath="$PROJECT_DIR$/练习题/05_找出两个元素之间的最大乘积.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/练习题/原型/01_修改prototype.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +47,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -67,7 +70,15 @@
       <workItem from="1622298584980" duration="2979000" />
       <workItem from="1622435766399" duration="689000" />
       <workItem from="1645265469286" duration="13559000" />
+<<<<<<< HEAD
       <workItem from="1645620903565" duration="3978000" />
+=======
+      <workItem from="1645620903565" duration="3378000" />
+      <workItem from="1646319079625" duration="597000" />
+      <workItem from="1646352855497" duration="442000" />
+      <workItem from="1646447885159" duration="6662000" />
+      <workItem from="1647071491057" duration="2516000" />
+>>>>>>> 2eec9392328ab69129cf02e5d53021e2f6f2670a
     </task>
     <task id="LOCAL-00001" summary="补充async">
       <created>1620656156962</created>
@@ -118,11 +129,30 @@
       <option name="project" value="LOCAL" />
       <updated>1645402637692</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: 补充预编译错题">
+      <created>1646352971959</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1646352971959</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="补充async" />
@@ -131,7 +161,8 @@
     <MESSAGE value="feat: 第二次手写" />
     <MESSAGE value="feat: 补充async和await" />
     <MESSAGE value="feat: 补充本地服务器的启动方式" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 补充本地服务器的启动方式" />
+    <MESSAGE value="feat: 补充预编译错题" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 补充预编译错题" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

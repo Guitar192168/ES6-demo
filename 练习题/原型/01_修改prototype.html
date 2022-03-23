@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let obj2 = {}  //  内部帮我们执行了 ==> new Object()
+    let obj3 = new Object()
+    console.log(obj2)
+    console.log(obj3)
+
+    Person.prototype.name = '张三'
+
+    function Person() {
+        // var this = {
+        // __proto__ : Person.prototype
+        // }
+    }
+
+    let person = new Person()
+    //person 其实就是上面那个this对象
+
+    console.log(person)
+    console.log(person.name)
+    Person.prototype.name = '李四'
+    //在这里，顺着__proto__去找原型的时候，Person.prototype的name已经改为了 李四
+    console.log(person)
+    console.log(person.name)
+
+// ----------------------------------------------------------
+
+    Car.prototype.name = 'BMW'
+
+    function Car() {
+
+    }
+
+    // Car.prototype = {
+    //     name:'YD'
+    // }
+
+    let obj = {name: 1}
+    let obj1 = obj
+    obj = {name: 2}
+    //把该代码 放在new的前面，其实是类似直接先修改{name:1}了obj = {name:2}，然后再去赋值给obj1的（赋值给this = {__proto__ : }
+
+
+    // 而在后面进行修改则是已经让__proto 跟  Car.prototype.name = 'BMW'  先建立连接后，直接修改了Car.prototype的引用，次数__proto__还是指向的 BMW
+    Car.prototype = {
+        name: 'YD'
+    }
+
+    //类似这种
+    // Person.prototype = {name: 1}
+    // __proto__ = Person.prototype
+    // Person.prototype = {name: 2}
+
+    let car = new Car()
+    console.log(car)
+    console.log(car.name)
+
+
+</script>
+</body>
+</html>

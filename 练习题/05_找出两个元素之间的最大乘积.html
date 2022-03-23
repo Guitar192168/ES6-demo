@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [5, -1, 8, 2, 3, -18, -30, 22, 11]
+
+    // } else if (arr > max > second) {
+    // 这里直接犯错，前面arr和max比较结束后，成布尔值，再来比较的是true与second(数组里为8)比较
+    // 然后true转换成数字类型的1 与8比较，难怪一直进不去这个if判断里面
+    function mulMax(arr) {
+            let max = 0
+            let second = 0
+            for (let i = 0; i < arr.length; i++) {
+                if (max < arr[i]) {
+                    second = max
+                    max = arr[i]
+                // } else if (arr > max) { // 这样写属实没必要，脱裤子放屁
+                } else{
+                    console.log(arr[i])
+                    second = arr[i]
+                }
+            }
+            console.log(max, second)
+            return max * second
+
+        // let max = 0
+        // let second = 0
+        // arr = arr.sort((a, b) => {
+        //     return a - b
+        // })
+        // console.log(arr)
+        // // max = arr[arr.length - 1]
+        // // second = arr[arr.length - 2]
+        // max = arr.pop()
+        // second = arr.pop()
+        // return max * second
+    }
+
+    console.log(mulMax(arr))
+
+</script>
+</body>
+</html>
