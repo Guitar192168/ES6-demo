@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        new Promise((resolve, reject) => {
+            console.log('1')
+            resolve()
+        }).then(() => {
+            new Promise((resolve, reject) => {
+                resolve()
+            }).then(() => {
+                console.log(3)
+            }).then(() => {
+                console.log(4)
+            }).then(() => {
+                console.log(5)
+            })
+        }).then(() => {
+            console.log(6)
+        })
+
+        let a = [{
+                "'name'": "姓名",
+                "'type'": "1"
+            },
+            {
+                "'name'": "人数",
+                "'type'": "2"
+            },
+            {
+                "'name'": "海报",
+                "'type'": "3"
+            }
+        ]
+
+        let b = []
+        // for (let item of a) {
+        //     for (let m in item) {
+        //         //    console.log(item);
+        //         m = 1
+        //         // m = m.replace(/\'/g, " ")
+        //         // console.log(item);
+        //     }
+
+        // }
+        a = a.map(item => {
+            // for (let m in item) {
+            //     m = m.replace(/\'/g, " ")
+            // }
+            console.log(Object.keys(item));
+            
+            console.log(Object.values(item));
+            Object.keys(item).forEach(m => {
+                m = m.replace(/\'/g, " ")
+            })
+            return item
+        })
+
+        console.log(a);
+    </script>
+</body>
+
+</html>

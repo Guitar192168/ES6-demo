@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+    <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="">
     <list default="true" id="1abed37e-bfb4-480c-b03a-ee51761536fd" name="Default Changelist" comment="feat: 补充预编译错题">
       <change afterPath="$PROJECT_DIR$/练习题/05_找出两个元素之间的最大乘积.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/练习题/原型/01_修改prototype.html" afterDir="false" />
@@ -69,11 +70,15 @@
       <workItem from="1622298584980" duration="2979000" />
       <workItem from="1622435766399" duration="689000" />
       <workItem from="1645265469286" duration="13559000" />
+<<<<<<< HEAD
+      <workItem from="1645620903565" duration="3978000" />
+=======
       <workItem from="1645620903565" duration="3378000" />
       <workItem from="1646319079625" duration="597000" />
       <workItem from="1646352855497" duration="442000" />
       <workItem from="1646447885159" duration="6662000" />
       <workItem from="1647071491057" duration="2516000" />
+>>>>>>> 2eec9392328ab69129cf02e5d53021e2f6f2670a
     </task>
     <task id="LOCAL-00001" summary="补充async">
       <created>1620656156962</created>
