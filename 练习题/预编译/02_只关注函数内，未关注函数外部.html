@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 还是预编译问题，c函数声明被提升在最顶端，然后c=1，无法执行c()
+        // 错在不该只看函数内部
+        var c = 1
+
+        function c(c) {
+            c = 5;
+            this.c = 2
+            console.log(c);
+            var c = 3
+        }
+        c(6)
+
+
+
+        // 如果这样改则是5
+        // function foo(c) {
+        //     c = 5;
+        //     this.c = 2
+        //     console.log(c);
+        //     var c = 3
+        // }
+        // foo(6)
+
+        var foo = '123'
+
+        function log() {
+            var foo = 456;
+            this.foo = 789;
+            console.log(foo);
+        }
+        log();
+    </script>
+</body>
+
+</html>
