@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Foo.prototype.name = 'zhangsan'
+
+        function Foo() {
+            // var this = {
+            // __proto__:Foo.prototype
+            // }
+        }
+        const foo = new Foo()
+        const obj = {
+            name: 'lisi'
+        }
+        // foo实例对象本身没有name属性，是顺着__proto__往上找，找到Foo.prototype的。
+        // 修改了foo.__proto__后，指向被修改。那么顺序原型链往上找的时候，name就变成了lisi
+        foo.__proto__ = obj
+        console.log(foo.name);
+    </script>
+</body>
+
+</html>
