@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object.create(里面的参数是 创建的实例对象的原型)
+        let obj = {
+            name: 1
+        }
+        const info = Object.create(obj)
+        console.log(info);
+        console.log(info.name);
+        console.log(obj.__proto__.__proto__)// 就是null了
+        console.log(info.__proto__  === obj);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Foo.prototype.name = 'zhangsan'
+
+        function Foo() {} // 预编译提升以后，
+        Foo.prototype = {
+            name: 'lisi'
+        }
+        const foo = new Foo() // 在这里才执行的new，此时prototype的指向已经修改
+        console.log(foo.name);
+    </script>
+</body>
+
+</html>

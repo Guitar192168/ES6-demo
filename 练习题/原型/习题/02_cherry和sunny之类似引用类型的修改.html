@@ -12,7 +12,20 @@
     <script>
         Foo.prototype.name = 'zhangsan'
 
-        function Foo() {}
+        function Foo() {
+            // var this = {
+            // __proto__: Foo.prototype    这个就是foo     一开始指向 {name:zhangsan}这个空间 后面把Foo.prototype指向的空间
+            // 换成了{name:lisi} 
+            // 类似于
+            // Person.prototype = {
+            //     name: 1
+            // }
+            // __proto__ = Person.prototype
+            // Person.prototype = {
+            //     name: 2
+            // }
+            // }
+        }
 
         const foo = new Foo()
         console.log(foo.name);
