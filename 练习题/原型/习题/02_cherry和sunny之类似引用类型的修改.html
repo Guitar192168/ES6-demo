@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Foo.prototype.name = 'zhangsan'
+
+        function Foo() {
+            // var this = {
+            // __proto__: Foo.prototype    这个就是foo     一开始指向 {name:zhangsan}这个空间 后面把Foo.prototype指向的空间
+            // 换成了{name:lisi} 
+            // 类似于
+            // Person.prototype = {
+            //     name: 1
+            // }
+            // __proto__ = Person.prototype
+            // Person.prototype = {
+            //     name: 2
+            // }
+            // }
+        }
+
+        const foo = new Foo()
+        console.log(foo.name);
+
+        Foo.prototype = {
+            name: 'lisi'
+        }
+        console.log(foo.name);
+        // 结果都打印张三
+
+        // 类似于
+        let a = 1
+        let b = a
+        a = 2
+        console.log(a, 'a', '-----', b, 'b');
+
+        let c = {
+            name: 123
+        }
+        let d = c
+        c = {
+            name: 456
+        }
+        console.log(c, 'c', '-----', 'd', d);
+    </script>
+</body>
+
+</html>

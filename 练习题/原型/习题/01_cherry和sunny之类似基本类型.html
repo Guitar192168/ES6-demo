@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Foo.prototype.name = 'zhangsan'
+
+        function Foo() {
+
+        }
+        const foo = new Foo()
+        console.log(foo.name);
+
+        Foo.prototype.name = 'lisi'
+        // 因为foo自身没有name属性，肯定会沿着__proto__去找Foo这个构造函数的显式原型上有没有name
+        // 而我们这又推荐修改了Foo.prototype.name的值为lisi，所以下面这个打印的时候，
+        // 根据原型链去查找的时候，找寻的肯定是原型链上的值
+        function Foo() {
+            // var this = {
+            // __proto__: Foo.prototype
+            // }
+        }
+        // 
+        console.log(foo.name);
+    </script>
+</body>
+
+</html>

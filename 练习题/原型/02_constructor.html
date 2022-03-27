@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Foo() {}
+        let foo = new Foo()
+        console.log(foo.constructor);
+        console.log(foo instanceof Foo);
+
+        // constructor可以被修改
+        const obj = {
+            name: 1
+        }
+
+        function Person() {}
+        Person.prototype = {
+            constructor: obj
+        }
+        let person = new Person()
+        console.log(person, 'person');
+        console.log(person.constructor, 'person的constructor');
+        console.log(person.constructor.name, 'person的constructor');
+        console.log(person instanceof Person);
+    </script>
+</body>
+
+</html>
