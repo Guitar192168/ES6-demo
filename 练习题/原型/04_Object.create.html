@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <a href="javascript:void(0);">
+        这个链接点击之后不会做任何事情，如果去掉 void()，
+        点击之后整个页面会被替换成一个字符 0。
+    </a>
     <script>
         // Object.create(里面的参数是 创建的实例对象的原型)
         let obj = {
@@ -17,8 +21,8 @@
         const info = Object.create(obj)
         console.log(info);
         console.log(info.name);
-        console.log(obj.__proto__.__proto__)// 就是null了
-        console.log(info.__proto__  === obj);
+        console.log(obj.__proto__.__proto__) // 就是null了
+        console.log(info.__proto__ === obj);
     </script>
 </body>
 
