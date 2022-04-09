@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //1
+    function setTimeoutA(fn) {
+        fn()
+    }
+
+    var a = 123
+
+    function foo() {
+        this.a = 456
+        console.log(this.a, this)
+    }
+
+    setTimeoutA(foo)
+
+    //2
+    function setTimeoutB(fn) {
+        fn()
+    }
+
+    var b = 123
+
+    function foo2() {
+        b = 456
+        console.log(this.b, this)
+    }
+
+    setTimeoutB(foo2)
+
+    //3
+    function setTimeoutC(fn) {
+        fn()
+    }
+
+    var c = 123
+
+    function foo3() {
+        var c = 456
+        console.log(this.c, this)
+    }
+
+    setTimeoutC((foo3))
+
+
+</script>
+</body>
+</html>

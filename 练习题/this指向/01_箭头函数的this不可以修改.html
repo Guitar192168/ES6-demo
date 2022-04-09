@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<script>
+    // ！！！箭头函数的this无法修改。
+
+    // 这里return的是个箭头函数，箭头函数的this是默认绑定靠的最近的父级的this
+    // 箭头函数里原来执行foo的this，伴随着.call(obj1)一起指向了obj1
+    // 但是不会再被改变了，箭头函数的this无法修改。
+    function foo() {
+        return a => console.log(this.a);
+    }
+
+    var obj1 = {
+        a: 2
+    };
+    var obj2 = {
+        a: 3
+    };
+    var bar = foo.call(obj1)
+    bar.call(obj2)
+
+    // 同样的
+    function foo() {
+        return () => {
+            return () => {
+                return () => {
+                    console.log('id:', this.id);
+                };
+            };
+        };
+    }
+
+    // 这里对foo的this指向进行了修改。返回的是一个箭头函数，箭头函数没法修改this
+    var f = foo.call({id: 1});
+
+    var t1 = f.call({id: 2})()(); // id: 1
+    var t2 = f().call({id: 3})(); // id: 1
+    var t3 = f()().call({id: 4});
+    console.log(t1, 't1')
+    console.log(t2, 't2')
+    console.log(t3, 't3')
+</script>
+</body>
+
+</html>
