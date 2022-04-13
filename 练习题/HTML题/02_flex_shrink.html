@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>flex_shrink的规则</title>
 </head>
 <style>
     body {
@@ -20,7 +20,7 @@
 
     #content div {
         flex-basis: 120px;
-        /* border: 3px solid rgba(0, 0, 0, .2); */
+        border: 3px solid rgba(0, 0, 0, .2);
     }
 
     .box {
@@ -28,11 +28,22 @@
     }
 
     .box1 {
-        flex-shrink: 0;
+        flex-shrink: 2;
     }
 </style>
 
 <body>
+    前提条件，这里是在flex布局里面用flex-shrink
+    这里父级content盒子的宽度为500px ,内部的5个div宽度都是120px，5 * 120 = 600px
+    多出来的100px，要被分配都五个子盒子头上。
+    收缩的属性 flex-shrink，默认为1 而class为box1的盒子，flex-shrink被修改为2.
+    总份是 1 + 1 + 1 + 2 + 2 = 7
+    所以class为box的每个盒子要伸缩1/7 大约14px左右 14.28px
+    而class为box2的每个盒子要伸缩2/7 大约28px左右 28.5px
+
+    实际宽度分别为 106px和92px 。此外，这个宽度是包含边框的。
+    如果有border:3px solid rgba(0,0,0, .2) 则真实宽度还要再减。
+
     <p>the width of content is 500px, flex-basic of flex item is 120px.</p>
     <p>A, B, C are flex-shrink:1. D and E are flex-shrink:2</p>
     <p>the width of D is not the same as A's</p>

@@ -9,16 +9,18 @@
 </head>
 
 <style>
-    .container.radio {
+    .container .radio {
         color: #008c8c;
     }
 
-    .container.radio:first-child {
+    .container .radio:first-child {
         font-size: 40px;
     }
 </style>
 
 <body>
+    first-child是对对加了该属性的元素来说， 最近的父元素内的 该元素中的第一个生效。
+    在这里指的是class为container的父元素内的第一个class为radio的才生效。
     <div class="container">
         <div class="radio">你好</div>
     </div>
