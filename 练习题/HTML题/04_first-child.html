@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .container .radio {
+        color: #008c8c;
+    }
+
+    .container .radio:first-child {
+        font-size: 40px;
+    }
+
+    .container.radio {
+        color: pink;
+    }
+</style>
+
+<body>
+    first-child是对对加了该属性的元素来说， 最近的父元素内的 该元素中的第一个生效。
+    在这里指的是class为container的父元素内的第一个class为radio的才生效。
+    <div class="container">
+        <div class="radio">你好</div>
+    </div>
+    <div class="container">
+        <div class="radio">你好</div>
+    </div>
+    <div class="container">
+        <div class="radio">你好</div>
+    </div>
+    <div class="container">
+        <div class="radio">你好</div>
+    </div>
+
+    <div class="container radio">
+        紧挨着的则是同一个元素上同时就这些 class则生效。
+    </div>
+
+    <!-- <div class="radio">你好</div>
+    <div class="radio">你好</div>
+    <div class="radio">你好</div>
+    <div class="radio">你好</div>
+    <div class="radio">你好</div> -->
+</body>
+
+</html>

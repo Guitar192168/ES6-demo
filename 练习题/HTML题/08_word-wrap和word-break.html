@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .container{
+        background-color: #008c8c;
+        /*height: 200px;*/
+        width: 300px;
+        /*word-break:break-all;*/
+        word-wrap:break-word;
+    }
+    p {
+        width: 300px;
+        padding: 5px;
+        background-color: #f0f3f9;
+        font-size: 14px;
+    }
+    .word-break {
+        word-break: break-all;
+    }
+    .word-wrap {
+        word-wrap: break-word;
+    }
+</style>
+<body>
+    <div class="container">
+        <div>asdkasdkjsahdahsjkkdkhas</div>
+        <hr>
+        <div>wasssObservable: lift no longer exposed was NEVERNEV Congratulations  documented  that</div>
+        word-wrap:break-word 会留白，会根据 单词能否显示在完整显示在某一行而决定是否要换行。如果单词无法放在最后一个位置，则会另起一行。
+        如果另起一行后，还是塞不下某个单独的长单词，就会对该单词强制换行了。
+        <hr>
+        <div>Subscription: add no longer returns an unnecessary Subscription reference. This was done to</div>
+        而word-break:break-all则是暴利强制换行的。
+    </div>
+
+    HTML代码：(注意word-wrap:break-word的案例，最后的长单词，先另起了一行，换行后还是放不下，就直接强制换行了。
+    <strong>word-break:break-all</strong>
+    <p class="word-break">你追我，如果你追到我，我就把你嘿嘿嘿，嘿嘿嘿就是打牌啦……的拼音是nizhuiwo, ruguonizhuidaowo, wojiubanniheiheihei, heiheiheijiushidapaila....标点去掉就是：nizhuiworuguonizhuidaowowojiubanniheiheiheiheiheiheijiushidapaila....</p>
+    <strong>word-wrap: break-word;</strong>
+    <p class="word-wrap">你追我，如果你追到我，我就把你嘿嘿嘿……的拼音是nizhuiwo, ruguonizhuidaowo, wojiubanniheiheihei, heiheiheijiushidapaila....标点去掉就是：nizhuiworuguonizhuidaowowojiubanniheiheiheiheiheiheijiushidapaila....</p>
+</body>
+</html>
