@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>in</title>
+</head>
+<body>
+    这个是因为in左侧的值，必须是字符串或者symbol类型的属性名或者数组索引。
+    右侧必须是对象。
+    这道题左侧是obj，所以是调用toString进行类型转换'[object Object]'
+    obj没有这个属性的
+    <script>
+
+        Object.prototype.toString = function(){
+            console.log('我是Object的toString');
+            // return 'a'
+        }
+
+        Object.prototype.valueOf = function(){
+            console.log('valueOf');
+        }
+        var obj = {a:1, b:2, c:3}
+        console.log(obj in obj);
+    </script>
+</body>
+</html>

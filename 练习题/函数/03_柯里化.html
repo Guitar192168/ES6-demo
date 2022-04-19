@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function addSum(...rest) {
+            return rest.reduce((acc, cur) => {
+                return acc + cur
+            }, 0)
+        }
+
+        function foo(...args) {
+            const sum1 = addSum(args)
+            const fn = (...args2) => {
+                const sum2 = addSum(args2)
+                return foo(sum1 + sum2)
+            }
+
+            return fn
+        }
+
+
+        console.log(
+            foo(1)(2)(3)
+        );
+
+        let a = foo(2, 3)(5)(5)
+        console.log(a);
+    </script>
+</body>
+
+</html>

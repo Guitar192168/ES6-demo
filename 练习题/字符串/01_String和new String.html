@@ -16,6 +16,15 @@
 
         // 使用单， 双引号创建的或者直接调用String方法（ 没有通过new 函数 生成实例对象的）
         // 都是基本字符串
+        // JavaScript会自动将基本字符串转换为字符串对象，只有将基本字符串转化为字符串对象之后
+        // 才可以使用字符串对象的方法。当基本字符串需要调用一个字符串对象才有的方法或者查询值的时候
+        // (基本字符串是没有这些方法的)，JavaScript 会自动将基本字符串转化为字符串对象并且调用相应的方法或者执行查询。
+
+        // 当然，使用valueOf会将对象字符串变为原始值，也即基本字符串
+        console.log(String('11') == new String('11'))
+        console.log(String('11') === new String('11'))
+        console.log(typeof String('11'));
+        console.log(typeof new String('11'));
     </script>
 </body>
 

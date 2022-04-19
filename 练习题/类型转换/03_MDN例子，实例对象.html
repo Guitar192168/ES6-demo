@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    这个是因为myObj即是返回的this对象。对象跟 3相加，需要调用valueOf
+    <script>
+        function MyNumberType(n) {
+            this.number = n;
+        }
+
+        MyNumberType.prototype.valueOf = function () {
+            console.log('执行了吗', this.number);
+            return this.number;
+        };
+
+        var myObj = new MyNumberType(4);
+        console.log(myObj + 3);
+    </script>
+</body>
+
+</html>
