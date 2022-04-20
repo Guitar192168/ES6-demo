@@ -2,13 +2,14 @@
 var obj = {}
 let value = 123
 obj.sex = 1 //直接添加的属性是可枚举的，可以被打印出来的 ，默认情况下，使用Object.defineProperty添加的属性是不可枚举的，
-// 这样直接写，等同于
+// 上面这样写，等同于下面通过Object.defineProperty来定义'sex'属性
 Object.defineProperty(obj, 'sex', {
     value: 1,
-    enumerable: true,
-    configurable: true,
-    writable: true
+    enumerable: true, // 默认为false 决定了是否可以在for...in和Object.keys里被遍历出来
+    configurable: true, //默认为false  是否可以被删除 以及其他属性描述符enumerable和writable是否可以被修改
+    writable: true //默认为false  为true时，上面的value才可以被赋值运算符所修改。
 })
+
 // 而这样等同于直接把其他配置项都使用默认值，false
 Object.defineProperty(obj, "b", {
     value: 1
@@ -17,9 +18,9 @@ Object.defineProperty(obj, "b", {
 
 Object.defineProperty(obj, 'a', {
     value: 123,
-    enumerable: true, // 默认为false 决定了是否可以在for in和Object.keys里被遍历出来
-    configurable: true, //默认为false  是否可以被删除
-    writable: true, //默认为false  是否可以被修改
+    enumerable: true,
+    configurable: true,
+    writable: true,
 })
 Object.defineProperty(obj, 'age', {
     value: 18, // 数据描述符和存取描述符不能混用

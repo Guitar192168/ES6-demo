@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var o = {};
+        Object.defineProperty(o, 'a', {
+            get() {
+                return 1;
+            },
+            configurable: false
+        });
+
+        console.log(o.a);
+
+        var obj = {}
+        Object.defineProperty(obj, 'b', {
+            get() {
+                return 123;
+            },
+            configurable: false,
+            set(value) { // value形参必传的
+                this._b = value
+            }
+        })
+
+        // console.log(obj.b = 123);
+        // obj.b = 123
+        console.log(obj.b);
+    </script>
+</body>
+
+</html>

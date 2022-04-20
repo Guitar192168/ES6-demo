@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>属性的简洁表示法</title>
+</head>
+<body>
+    ES6 允许在大括号里面，直接写入变量和函数，作为对象的属性和方法。这样的书写更加简洁。
+    <script>
+        const obj = {
+            foo:function(){
+                console.log('我被new了');
+            }
+        }
+
+        new obj.foo()
+
+        const obj2 = {
+            foo(){
+                console.log('简写的我被new了');
+            }
+        }
+        new obj2.foo()
+        // 05_对象简写的写法不能用作构造函数.html:25 Uncaught TypeError: obj2.foo is not a constructor
+        // 报错
+    </script>
+</body>
+</html>

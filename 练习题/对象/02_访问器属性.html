@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两个访问器直接要加逗号隔开！！</title>
+</head>
+
+<body>
+    <a href="https://zh.javascript.info/property-accessors">原文地址</a>
+    <a
+        href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#try_it">MDN地址</a>
+    有两种类型的对象属性
+    数据属性和
+    访问器属性
+    访问器属性由 “getter” 和 “setter” 方法表示
+    <script>
+        const obj = {
+            get age() {
+                // 当读取obj.age属性时，getter起作用
+                return this._age
+            }, // 注意这里需要写逗号的，要不然会报错
+            set age(value) {
+                this._age = value
+            }
+        }
+        console.log(obj.age = 20);
+        console.log(obj.age);
+
+        // 对象的访问器属性写法
+        let user = {
+            name: "John",
+            surname: "Smith",
+
+            get fullName() {
+                return `${this.name} ${this.surname}`;
+            },
+            set fullName(value) {
+                [this.name, this.surname] = value.split(' ')
+            }
+        };
+        user.fullName = 'yang jing'
+        console.log(user.fullName);
+    </script>
+</body>
+
+</html>

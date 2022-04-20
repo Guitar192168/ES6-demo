@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .A {
+        z-index: 3000;
+        height: 300px;
+        width: 300px;
+        background-color: #008c8c;
+    }
+
+    .B {
+        z-index: 5000;
+        height: 300px;
+        width: 300px;
+        position: fixed;
+        background-color: orange;
+    }
+
+    .C {
+        z-index: 5000;
+        height: 100px;
+        width: 100px;
+        background-color: skyblue;
+        /* top: 100px; */
+        position: absolute;
+    }
+</style>
+
+<body>
+    状态为static的 不支持z-index
+    期望是c在A之上
+    <div class="A">
+        a
+        <div class="B">
+            b
+        </div>
+    </div>
+    <div class="C">
+        c
+    </div>
+</body>
+
+</html>

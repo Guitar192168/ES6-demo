@@ -2,8 +2,8 @@ const obj = {}
 const symbol1 = Symbol(1)
 Object.defineProperty(obj, 'name', {
     value: "yjq",
-    enumerable: true,
-    configurable: false, // 配置是否可以被删除
+    enumerable: true, // 默认为false，为true时可以被遍历。
+    configurable: false, // 配置是否可以被删除, 为true可以被删除，属性描述符也可以被改变
     writable: true, // 配置是否可以被修改
 })
 Object.defineProperty(obj, symbol1, { // 定义一个symbol属性
