@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 映射机智是在函数执行赋值的那一刻建立的。不能再去手动绑定。已经没有建立连接的的实参c，再通过
+        // arguments[2]去赋值，c还是undefined，拿不到值的
+        
+        function foo(a, b, c) {
+            // c = 100
+            // arguments[3] = 200
+            arguments.length = 5
+            console.log(arguments);
+            arguments[0] = 300
+            arguments[2] = 600
+            console.log(a);
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[2], c);
+        }
+
+        foo(1, 2)
+        // 测试一下严格模式的
+    </script>
+</body>
+
+</html>
