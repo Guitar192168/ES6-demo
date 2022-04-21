@@ -12,7 +12,8 @@
     <script>
         // 映射机智是在函数执行赋值的那一刻建立的。不能再去手动绑定。已经没有建立连接的的实参c，再通过
         // arguments[2]去赋值，c还是undefined，拿不到值的
-        
+        // 'use strict'
+
         function foo(a, b, c) {
             // c = 100
             // arguments[3] = 200
@@ -24,10 +25,19 @@
             console.log(arguments[0]);
             console.log(arguments[1]);
             console.log(arguments[2], c);
+            console.log(arguments.callee, 'arguments.callee');
         }
 
         foo(1, 2)
         // 测试一下严格模式的
+        // 在控制台里是a还是1，仅仅是arguments[0]变为了100
+        function bar(a, b, c) {
+            arguments[0] = 100
+            console.log(arguments[0]);
+            console.log(a);
+            console.log(arguments.callee);
+        }
+        bar(1, 2, 3)
     </script>
 </body>
 
