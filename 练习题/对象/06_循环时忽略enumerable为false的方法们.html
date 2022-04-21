@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+引入enumerable属性就是为了防止for...in把继承来的属性也循环了出来
+下面这几个循环都遵循一个规则，
+先处理数字类型的索引（或者说数值键）升序排列，
+其次处理字符串键，按照时间顺序，
+先后顺序，最后处理symbol类型的键，也按照升序
+<script>
+    let obj = {a: 1}
+    let key1 = Symbol(1234)
+    Object.defineProperty(obj, 'b', {
+        value: 2 // 看来默认enumerable是false!!!
+    })
+
+
+    Object.defineProperty(obj, 'c', {
+        value: 3,
+        enumerable: true
+    })
+
+    Object.defineProperty(obj, key1, {
+        value: '我是symbol属性的值', // !!! 谨记，这样定义是直接定义了个enumerable为false的
+        enumerable: true
+    })
+    Object.setPrototypeOf(obj, {age: 123})
+
+    //    for...in
+    for (let item in obj) {
+        console.log(item, '来自for...in循环的每一项，还能循环出继续来的属性，但是不能循环出enumerable为false的属性')
+    }
+
+    console.log(obj, 'obj自身', obj.age, 'obj.age从原型上获取到的age属性')
+    // console.log(Object.keys(obj), 'Object.keys')
+    // console.log(Object.values(obj), 'Object.values')
+    // console.log(JSON.stringify(obj), 'JSON.stringify')
+    let obj2 = {}
+    //都是返回obj对象的浅拷贝 s
+    // obj2 = Object.assign(obj)
+    // obj2 = Object.assign({}, obj)
+    //都是返回obj对象的浅拷贝 e
+    obj2 = Object.assign({}, obj) //只能合并可枚举的属性
+    console.log(obj2, 'Object.assign的效果')
+
+    console.log(Object.getOwnPropertyNames(obj), 'Object.getOwnPropertyNames(obj)')
+    console.log(Object.getOwnPropertySymbols(obj), 'Object.getOwnPropertySymbols')
+
+    console.log(Reflect.ownKeys(obj))
+
+    //循环顺序还不一样
+    const obj3 = {
+        [Symbol(0)]: 123, 9: 1, a: 123, 0: 2, b: 456
+    }
+
+    for (let item in obj3) {
+        console.log(item, 'for...in观察顺序')
+    }
+    console.log(Object.keys(obj3))
+</script>
+</body>
+</html>

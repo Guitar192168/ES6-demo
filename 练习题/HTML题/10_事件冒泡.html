@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    #btn {
+        height: 300px;
+        border: 1px solid #008c8c;
+    }
+</style>
+<div id="btn">
+    <input type="text" id="demo">
+</div>
+<script>
+    const inputDemo = document.getElementById('demo')
+    const btn = document.getElementById('btn')
+    console.log(btn)
+    console.log(inputDemo)
+    inputDemo.addEventListener("mouseenter", function () {
+        console.log('输入框的方法')
+    })
+    btn.addEventListener("mouseenter", function () {
+        console.log('外层的方法')
+    })
+</script>
+</body>
+</html>

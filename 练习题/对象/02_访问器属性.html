@@ -9,41 +9,59 @@
 </head>
 
 <body>
-    <a href="https://zh.javascript.info/property-accessors">原文地址</a>
-    <a
-        href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#try_it">MDN地址</a>
-    有两种类型的对象属性
-    数据属性和
-    访问器属性
-    访问器属性由 “getter” 和 “setter” 方法表示
-    <script>
-        const obj = {
-            get age() {
-                // 当读取obj.age属性时，getter起作用
-                return this._age
-            }, // 注意这里需要写逗号的，要不然会报错
-            set age(value) {
-                this._age = value
-            }
+<a href="https://zh.javascript.info/property-accessors">原文地址</a>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty#try_it">MDN地址</a>
+有两种类型的对象属性
+数据属性和
+访问器属性
+访问器属性由 “getter” 和 “setter” 方法表示
+<script>
+    const obj = {
+        get age() {
+            // 当读取obj.age属性时，getter起作用
+            return this._age
+        }, // 注意这里需要写逗号的，要不然会报错
+        set age(value) {
+            this._age = value
         }
-        console.log(obj.age = 20);
-        console.log(obj.age);
+    }
+    console.log(obj.age = 20);
+    console.log(obj.age);
 
-        // 对象的访问器属性写法
-        let user = {
-            name: "John",
-            surname: "Smith",
+    // 对象的访问器属性写法
+    let user = {
+        name: "John",
+        surname: "Smith",
 
-            get fullName() {
-                return `${this.name} ${this.surname}`;
-            },
-            set fullName(value) {
-                [this.name, this.surname] = value.split(' ')
-            }
-        };
-        user.fullName = 'yang jing'
-        console.log(user.fullName);
-    </script>
+        get fullName() {
+            return `${this.name} ${this.surname}`;
+        },
+        set fullName(value) {
+            [this.name, this.surname] = value.split(' ')
+        }
+    };
+    user.fullName = 'yang jing'
+    console.log(user.fullName);
+
+    //对象方法也是函数，也有name
+    // 而访问器属性的name的获取不太一样
+    // 通过Object.getOwnPropertyDescriptor来获取属性访问器名字
+    console.log(Object.getOwnPropertyDescriptor(obj, 'age').get.name);
+    console.log(Object.getOwnPropertyDescriptor(obj, 'age').set.name);
+
+    //如果对象的方法是symbol类型的
+    let key1 = Symbol('abc')
+    let key2 = Symbol('')
+    let obj2 = {
+        [key1]() {
+        },
+        [key2](){
+
+        }
+    }
+    console.log(obj2[key1].name);
+    console.log(obj2[key2].name);
+</script>
 </body>
 
 </html>

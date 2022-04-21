@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+引入enumerable属性就是为了防止for...in把继承来的属性也循环了出来
+下面这几个循环都遵循一个规则，
+先处理数字类型的索引（或者说数值键）升序排列，
+其次处理字符串键，按照时间顺序，
+先后顺序，最后处理symbol类型的键，也按照升序
+<script>
+    //循环顺序还不一样
+    const obj = {
+        [Symbol(0)]: 123, 9: 1, a: 123, 0: 2, b: 456
+    }
+
+    for (let item in obj) {
+        console.log(item, 'for...in观察顺序')
+    }
+    console.log(Object.keys(obj), 'Object.keys')
+    console.log(Object.values(obj), 'Object.values') //其实也是按照顺序来的
+
+    let obj2 = Object.assign({}, obj)
+    console.log(obj2, 'Object.assign来的') // 可以把symbol属性也合并过来的
+    console.log(Reflect.ownKeys(obj), 'Reflect.ownKeys') //// 可以把symbol属性也合并过来的 且不管  是否可枚举
+</script>
+</body>
+</html>

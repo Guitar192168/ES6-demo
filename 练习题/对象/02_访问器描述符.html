@@ -12,9 +12,10 @@
     <script>
         var o = {};
         Object.defineProperty(o, 'a', {
-            get() {
-                return 1;
-            },
+            // get() {
+            //     return 1;
+            // },
+            value: 1,
             configurable: false
         });
 
@@ -34,6 +35,13 @@
         // console.log(obj.b = 123);
         // obj.b = 123
         console.log(obj.b);
+
+        // Object.getOwnPropertyDescriptor返回对象上的自有属性的描述符，而不是从原型上继承来的属性
+        console.log(Object.getOwnPropertyDescriptor(o, 'a').value);
+        console.log(Object.getOwnPropertyDescriptor(obj, 'b'));
+        console.log(Object.getOwnPropertyDescriptor(obj, 'toString'));
+        // 可以通过该属性获取对象的访问器属性的name
+        // 详情见02_访问器属性.html
     </script>
 </body>
 
