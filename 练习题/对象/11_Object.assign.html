@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Object.assign(target, ...source)
+如果直接 Object.assign({}, target)则是返回target的一个浅拷贝
+合并的后续对象中如果有相同属性，会被覆盖
+继承属性是不能拷贝的
+不可枚举属性不可拷贝enumerable为false的
+
+
+注意:合并的source如果是null和undefined不会报错，但是会忽略
+其他的基本类型会先转换成包装类
+而只有字符串的包装类对象才会有可枚举属性
+Object.assign({},1)  => {}
+Object.assign({},'1') => {0:'1'}
+<script>
+    let info = {}
+    Object.defineProperty(info, 'age', {
+        value: 123,// 不写就是默认enumerable: false
+        // enumerable: false
+    })
+    let m = Object.assign({}, info)
+    console.log(m)
+    console.log(m.sex)
+
+    let a = 1
+    let b = true
+    let c = undefined
+    let d = 'age'
+    let e = null
+    let f = Symbol(123)
+    let obj = Object.assign({}, a, b, c, d, e, f)
+    //！！这里首先会过滤null和undefined ，然后对基本类型的变成包装类
+    //但是只有字符串的包装类对象才可能有可枚举属性
+    console.log(obj)
+
+    const target = Object.defineProperty({}, "foo", {
+        value: 1,
+        writable: false
+    }); // target 的 foo 属性是个只读属性。
+
+    Object.assign(target, {bar: 2}, {foo2: 3, foo: 3, foo3: 3}, {baz: 4});
+    // TypeError: "foo" is read-only
+    // 注意这个异常是在拷贝第二个源对象的第二个属性时发生的。
+
+    console.log(target.bar);  // 2，说明第一个源对象拷贝成功了。
+    console.log(target.foo2); // 3，说明第二个源对象的第一个属性也拷贝成功了。
+    console.log(target.foo);  // 1，只读属性不能被覆盖，所以第二个源对象的第二个属性拷贝失败了。
+    console.log(target.foo3); // undefined，异常之后 assign 方法就退出了，第三个属性是不会被拷贝到的。
+    console.log(target.baz);  // undefined，第三个源对象更是不会被拷贝到的。
+
+
+</script>
+</body>
+</html>

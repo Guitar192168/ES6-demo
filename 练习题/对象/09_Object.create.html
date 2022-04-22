@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Object.create(proto,propertiesObject)两个参数
+第一个参数是返回的新对象的原型
+第二个参数是Object.defineProperties的第二个参数，会成为返回的新对象的属性。
+var obj = {};
+Object.defineProperties(obj, {
+'property1': {
+value: true,
+writable: true
+},
+'property2': {
+value: 'Hello',
+writable: false
+}
+// etc. etc.
+});
+属性描述符和访问器描述符
+<script>
+
+    let a = Object.create({name: 123}, {
+            'age': {
+                value: 456
+            }
+        }
+    )
+
+
+</script>
+</body>
+</html>
