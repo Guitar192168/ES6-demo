@@ -9,38 +9,59 @@
 </head>
 
 <body>
-    <script>
-        // function Phone(brand) {
-        //     this.brand = brand;
-        // }
+<script>
+    // 类声明
+    // 类表达式
+    // super调用父类的构造函数
 
-        // Phone.prototype.call = function () {
-        //     console.log('我可以');
-        // }
 
-        // let phone = new Phone('Mi')
-
-        // phone.call()
-        // console.log(phone);
-
-        class Phone {
-            constructor(brand) {
-                this.brand = brand;
-            }
-
-            call() {
-                console.log('俺可以2');
-            }
+    class Person {
+        constructor(name, age) {
+            this.name = name
+            this.age = age
         }
-   
 
-        let phone = new Phone('Mi')
+        eat() {
+            console.log('eat的this', this)
+            return this
+        }
 
-        console.log(phone);
-        phone.call()
+        static say() {
+            console.log('static的say方法的this', this)
+            return this
+        }
+    }
 
+    let p1 = new Person(123, 456)
+    console.log(p1.eat());
+    let a = p1.eat
+    a()
 
-    </script>
+    Person.say()
+    let b = Person.say
+    b()
+
+    function Animal() {
+    }
+
+    Animal.prototype.speak = function () {
+        console.log('原型上的this', this)
+        return this;
+    }
+
+    Animal.eat = function () {
+        console.log('es5构造函数上的方法', this)
+        return this;
+    }
+
+    let obj = new Animal();
+    obj.speak()
+    let speak = obj.speak;
+    speak(); // global object
+
+    let eat = Animal.eat;
+    eat();
+</script>
 </body>
 
 </html>

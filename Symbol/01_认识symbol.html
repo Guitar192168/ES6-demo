@@ -6,6 +6,24 @@
 </head>
 <body>
 <script>
+    // 描述符
+    const a = Symbol('foo')
+    console.log(typeof a);
+    console.log(Object.prototype.toString.call(a))
+    // [object Symbol]
+
+    let obj = {
+        [a]: 123
+    }
+    // console.log(Object.getOwnPropertySymbols(a)) 是个空数组
+    console.log(Object.getOwnPropertySymbols(obj))
+
+    // a的描述就是字符串'foo'
+    // 想要获得描述符可以直接调用toString方法
+    console.log(typeof a.toString());
+    console.log(Object.prototype.toString.call(a.toString()))
+
+
     let s = Symbol();
     console.log(s, typeof s)
 

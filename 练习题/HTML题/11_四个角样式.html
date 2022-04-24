@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .win {
+        margin: 20px;
+        position: relative;
+        display: inline-block;
+    }
+    .main {
+        width: 200px;
+        height: 200px;
+        border: 1px solid rgb(153, 204, 255);
+        border-radius: 4px;
+    }
+    .border_corner{
+        z-index: 2500;
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: rgba(0,0,0,0);
+        border: 2px solid #2f7f9d;
+    }
+    .border_corner_left_top{
+        top: 0;
+        left: 0;
+        border-right: none;
+        border-bottom: none;
+        border-top-left-radius: 4px;
+    }
+    .border_corner_right_top{
+        top: 0;
+        right: 0;
+        border-left: none;
+        border-bottom: none;
+        border-top-right-radius: 4px;
+    }
+    .border_corner_left_bottom{
+        bottom: 0;
+        left: 0;
+        border-right: none;
+        border-top: none;
+        border-bottom-left-radius: 4px;
+    }
+    .border_corner_right_bottom{
+        bottom: 0;
+        right: 0;
+        border-left: none;
+        border-top: none;
+        border-bottom-right-radius: 4px;
+    }
+
+
+    /*间隔*/
+    /*间隔*/
+    /*间隔*/
+    .box {
+        position: relative;
+        left: 50px;
+        top: 50px;
+        margin: 10px;
+        width: 200px;
+        height: 200px;
+        border: 1px solid blue;
+    }
+    .box  img{
+        width: 200px;
+        height: 200px;
+    }
+
+    .border {
+        position: absolute;
+        padding: 5px;
+        border-style: solid;
+        border-color: blue;
+    }
+
+    .row1 {
+        border-width: 5px 0 0 5px;
+        top: -5px;
+        left: -5px;
+    }
+
+    .row2 {
+        border-width: 5px 5px 0 0;
+        top: -5px;
+        right: -5px;
+    }
+
+    .col1 {
+        border-width: 0 0 5px 5px;
+        bottom: -5px;
+        left: -5px;
+    }
+
+    .col2 {
+        border-width: 0 5px 5px 0;
+        bottom: -5px;
+        right: -5px;
+    }
+</style>
+<body>
+
+
+<div class="box">
+    <div class="border row1"></div>
+    <div class="border row2"></div>
+    <div class="border col1"></div>
+    <div class="border col2"></div>
+    <img src="https://img1.baidu.com/it/u=1609834119,2632586600&fm=253&fmt=auto&app=138&f=JPEG?w=360&h=360"/>
+</div>
+
+<!--&lt;!&ndash; 框 &ndash;&gt;-->
+<!--<div class="win">-->
+<!--    &lt;!&ndash; 四个角的边框效果 &ndash;&gt;-->
+<!--    <div class="border_corner border_corner_left_top"></div>-->
+<!--    <div class="border_corner border_corner_right_top"></div>-->
+<!--    <div class="border_corner border_corner_left_bottom"></div>-->
+<!--    <div class="border_corner border_corner_right_bottom"></div>-->
+<!--    <div class="main">-->
+<!--        &lt;!&ndash; 这里写内容 &ndash;&gt;-->
+<!--    </div>-->
+<!--</div>-->
+
+</body>
+</html>

@@ -11,15 +11,19 @@
     右侧必须是对象。
     这道题左侧是obj，所以是调用toString进行类型转换'[object Object]'
     obj没有这个属性的
+
+    in同比较运算符不一样，in会先调用toString方法, 如果toString方法返回的不是原始值，则会去调用valueOf了
     <script>
 
         Object.prototype.toString = function(){
             console.log('我是Object的toString');
-            // return 'a'
+            return 'a'
+            // return {}
         }
 
         Object.prototype.valueOf = function(){
             console.log('valueOf');
+            return 'a'
         }
         var obj = {a:1, b:2, c:3}
         console.log(obj in obj);

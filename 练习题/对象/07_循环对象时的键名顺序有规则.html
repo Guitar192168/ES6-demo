@@ -25,6 +25,23 @@
     let obj2 = Object.assign({}, obj)
     console.log(obj2, 'Object.assign来的') // 可以把symbol属性也合并过来的
     console.log(Reflect.ownKeys(obj), 'Reflect.ownKeys') //// 可以把symbol属性也合并过来的 且不管  是否可枚举
+
+    //测试Reflect.ownKeys是否可以循环出原型继承的属性吗
+    //不行
+    const obj3 = Object.create({}, {
+            'name': {
+                value: 123,
+                enumerable: true
+            },
+            [Symbol(1)]: {
+                value: '456',
+                enumerable: true
+            }
+        }
+    )
+    Object.setPrototypeOf(obj3, {age: 18})
+    console.log(obj3, obj3.age)
+    console.log(Reflect.ownKeys(obj3))
 </script>
 </body>
 </html>

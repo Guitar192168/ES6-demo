@@ -10,6 +10,13 @@
 先处理数字类型的索引（或者说数值键）升序排列，
 其次处理字符串键，按照时间顺序，
 先后顺序，最后处理symbol类型的键，也按照升序
+
+Object.keys和values和entries无法遍历出symbol类型的属性
+Object.keys([Symbol(1)]:123,age:18)
+
+
+对字符串则会返回一个由字符串各个字符组成的数组
+
 <script>
     let obj = {a: 1}
     let key1 = Symbol(1234)
@@ -33,11 +40,16 @@
     for (let item in obj) {
         console.log(item, '来自for...in循环的每一项，还能循环出继续来的属性，但是不能循环出enumerable为false的属性')
     }
-
     console.log(obj, 'obj自身', obj.age, 'obj.age从原型上获取到的age属性')
-    // console.log(Object.keys(obj), 'Object.keys')
-    // console.log(Object.values(obj), 'Object.values')
-    // console.log(JSON.stringify(obj), 'JSON.stringify')
+    console.log(Object.keys(obj), 'Object.keys')
+    console.log(Object.values(obj), 'Object.values')
+    console.log(JSON.stringify(obj), 'JSON.stringify')
+
+
+    //这样创建对象，传的第二个参数是描述符。如果不显示的置顶enumerable为true，则默认是false的
+    const obj5 = Object.create({}, {p: {value: 42}});
+    Object.values(obj5) // []
+
     let obj2 = {}
     //都是返回obj对象的浅拷贝 s
     // obj2 = Object.assign(obj)
@@ -60,6 +72,16 @@
         console.log(item, 'for...in观察顺序')
     }
     console.log(Object.keys(obj3))
+
+//    基本类型
+    //    字符串
+    //    对字符串则会返回一个由字符串各个字符组成的数组
+    console.log(Object.keys('foo'));
+
+    // 其他的基本类型, 布尔和数字的包装类没有可枚举属性
+    // Object.values会先将其转为对象。由于数值和布尔值的包装对象，都不会为实例添加非继承的属性。所以，Object.values会返回空数组。
+    console.log(Object.values(123),'number类型')
+    console.log(Object.values(true),'布尔值')
 </script>
 </body>
 </html>

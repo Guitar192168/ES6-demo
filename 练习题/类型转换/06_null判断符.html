@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // const b = true
+    // const b = ''
+    const b = false
+    const a = b || '456'
+    //    一旦b为空字符串或者false, 也还是执行了|| 后面的
+
+    console.log(a)
+
+    // ?? null判断符，只有严格 等于undefined或者null了才会执行右侧的
+    const c = b ?? 123
+    console.log(c)
+</script>
+</body>
+</html>

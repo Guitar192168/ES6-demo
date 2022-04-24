@@ -15,7 +15,7 @@ Object.assign(target, ...source)
 注意:合并的source如果是null和undefined不会报错，但是会忽略
 其他的基本类型会先转换成包装类
 而只有字符串的包装类对象才会有可枚举属性
-Object.assign({},1)  => {}
+Object.assign({},1) => {}
 Object.assign({},'1') => {0:'1'}
 <script>
     let info = {}
@@ -27,6 +27,14 @@ Object.assign({},'1') => {0:'1'}
     console.log(m)
     console.log(m.sex)
 
+
+    //    数组
+    //会把数组视为对象 属性名分别是0 ,1,2      后面的数组的属性名是0，1
+    // 然后一合并，就 4覆盖了1,  5覆盖了2
+    console.log(Object.assign([1, 2, 3], [4, 5]), '数组');
+
+
+    //原始值里，只有字符串有变成的包装类可枚举
     let a = 1
     let b = true
     let c = undefined
@@ -38,6 +46,7 @@ Object.assign({},'1') => {0:'1'}
     //但是只有字符串的包装类对象才可能有可枚举属性
     console.log(obj)
 
+    //不能合并 不可枚举的属性
     const target = Object.defineProperty({}, "foo", {
         value: 1,
         writable: false
