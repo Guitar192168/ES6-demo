@@ -9,8 +9,8 @@
         height: 200px;
         width: 200px;
         background-color: #008c8c;
-        position: relative;
-        overflow: hidden;
+        /*position: relative;*/
+        /*overflow: hidden;*/
     }
 
     .container:after {
@@ -18,9 +18,10 @@
         width: 200px;
         height: 40px;
         border-radius: 50%;
-        top:190px;
-        background-color: #fff;
-        position: absolute;
+        /*top:190px;*/
+        display: block;
+        /*position: absolute;*/
+        background-color: red;
     }
 
 </style>
@@ -28,5 +29,8 @@
 <div class="container">
 
 </div>
+
+<!--<text  style="height: 300px;background-color: #008c8c;position:absolute;">测试</text>-->
+<span  style="height: 300px;background-color: #008c8c;position:absolute;display: inline">测试11</span>
 </body>
 </html>
