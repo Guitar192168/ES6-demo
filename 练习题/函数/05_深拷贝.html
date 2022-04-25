@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+
+    function foo() {
+
+    }
+
+    // console.log(foo)
+    // console.log(foo.toString())
+    console.log(new Function('return ' + foo.toString())());
+
+    let obj = {
+        name: 123,
+        age: 456,
+        books: [{a: 1}, {b: 2}, 3, 4],
+        info: {
+            title: 456,
+            infoList: [123, 456],
+        }
+    }
+
+    function deepClone(obj){
+        const toString = Object.prototype.toString
+        for(let item in obj){
+
+        }
+    }
+
+</script>
+</body>
+</html>

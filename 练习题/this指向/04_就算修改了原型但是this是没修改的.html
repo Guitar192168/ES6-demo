@@ -25,13 +25,26 @@
     //这里的super.foo约等于 Object.getPrototypeOf(this).foo   这里的this是obj对象，而不是proto对象
     obj.foo()
 
-    function foo(){}
-    foo.prototype.demo = function (){
+    function foo() {
+    }
+
+    foo.prototype.demo = function () {
         //原型上面的方法里面的this就是实例对象
         console.log(this)
     }
     let f = new foo()
     f.demo()
+
+    function Polygon(name) {
+        this.name = name
+    }
+
+    Polygon.prototype.test = function () {
+        console.log(this.name)
+        return this.name
+    }
+    let info = new Polygon(123)
+    console.log(info.test())
 </script>
 </body>
 </html>
