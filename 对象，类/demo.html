@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
 <body>
+函数声明和类声明的区别：类声明不会出现变量提示。
+类默认开启了严格模式，严格模式下的this是undefined
 <script>
     // 类声明
     // 类表达式
-    // super调用父类的构造函数
+    // super调用父类的构造函数或者直接调用父类的方法
 
+    class Info {
+        constructor() {
+            this.name = '123'
+        }
+
+        get age(){
+            return this.name
+        }
+        set age(){
+
+        }
+    }
 
     class Person {
         constructor(name, age) {

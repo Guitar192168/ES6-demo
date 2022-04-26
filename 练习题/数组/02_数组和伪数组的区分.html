@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+起因是因为
+const set = new Set(document.querySelectorAll('div'));
+阮一峰es6里面描述这个是Set结构 是接受类似数组的对象作为参数
+<div class="app">
+    <div class="container"></div>
+    <div class="content"></div>
+</div>
+<script>
+    const a = [1, 2, 3]
+    const nodeList = document.querySelectorAll('div')
+    // 1.可以用Object.toString.prototype.call
+    console.log(Object.prototype.toString.call(a), 'Object.toString.prototype.call 数组');
+    console.log(Object.prototype.toString.call(nodeList), 'Object.toString.prototype.call --- nodeList');
+
+    // 2. Array.isArray()
+    console.log(Array.isArray(a), 'a', '===', Array.isArray(nodeList), 'nodeList')
+
+    // 3. constructor
+    console.log(a.constructor === Array, nodeList.constructor === Array)
+
+    // 4. instanceof
+    console.log(a instanceof Array, nodeList instanceof Array)
+
+    // 这个不行的
+    // console.log(typeof a, typeof nodeList)
+</script>
+</body>
+</html>

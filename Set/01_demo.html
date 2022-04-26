@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+new Set()里面需要传数组[1,2,3]或者字符串
+传基本类型的值会报错
+Uncaught TypeError: number 1 is not iterable (cannot read property Symbol(Symbol.iterator))
+<script>
+
+    let a = new Set([1, 2])
+    //添加  返回这个set结构
+    a.add(555)
+    // 删除
+    a.delete(2)
+    // 查询
+    console.log(a.has(1))
+    // 类似数组的length
+    console.log(a, a.size)
+
+    // Set不会发生类型转换, '2'与2会当做两个值, 类似使用了全等运算符去判断。
+    // 唯一区别就是对NaN的判断，NaN不等于NaN，但是set认为NaN是相等的
+    a.add('1')
+    console.log(a, '添加了字符串"1"和number类型的1')
+    console.log(a.add(NaN))
+    //    再次添加NaN  不会重复添加
+    console.log(a.add(NaN))
+
+    //而对于对象和数组，则认为不是同一个
+    console.log(a.add({}))
+    console.log(a.add({}))
+    console.log(a.add([]))
+    console.log(a.add([]))
+</script>
+</body>
+</html>
