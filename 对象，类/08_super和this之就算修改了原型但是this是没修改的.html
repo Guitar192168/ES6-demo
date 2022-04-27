@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const proto = {
+        x: 'hello',
+        foo() {
+            console.log(this.x, this);
+        },
+    };
+
+    const obj = {
+        x: 'world',
+        foo() {
+            console.log(this, '这里的this')
+            super.foo();
+        }
+    }
+
+    Object.setPrototypeOf(obj, proto);
+    //obj的foo调用的是   obj原型上的foo
+    //这里的super.foo约等于 Object.getPrototypeOf(this).foo   这里的this是obj对象，而不是proto对象
+    //obj.prototype 指向了proto对象，但是this还是指向的obj的
+    obj.foo()
+
+    function foo() {
+    }
+
+    foo.prototype.demo = function () {
+        //原型上面的方法里面的this就是实例对象
+        console.log(this)
+    }
+    let f = new foo()
+    f.demo()
+
+    function Polygon(name) {
+        this.name = name
+    }
+
+    Polygon.prototype.test = function () {
+        console.log(this.name)
+        return this.name
+    }
+    let info = new Polygon(123)
+    console.log(info.test())
+</script>
+</body>
+</html>

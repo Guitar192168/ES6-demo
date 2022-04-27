@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+类声明  类表达式
+函数声明和类声明的区别：类声明不会出现变量提示。
+
+this
+类默认开启了严格模式，严格模式下的this是undefined
+
+constructor 用于创建和初始化一个由class创建的对象 一个类只能有一个constructor方法。
+
+extends  记得加s 是extends
+
+super调用父类的构造函数或者直接调用父类的方法
+使用super.prop或者super[prop]都是可以的
+如果子类中定义了构造函数，那么子类必须先调用super()才能使用this
+甚至可以调用父类的静态方法
+
+static静态页属性 静态方法 不能被实例调用的；当然了，静态属性或者方法也可以定义在类的外面
+class Person{} Person.say = function(){}
+
+
+访问器getter和setter是在实例上的
+<script>
+
+    class Person {
+        constructor() {
+            this.name = '123'
+        }
+
+        //getter和setter这俩方法是在实例上的
+        get age() {
+            return this.name
+        }
+
+        set age(value) {
+            this.name = value
+        }
+    }
+
+    console.log(Person.age, 'Person.age')
+    let person = new Person()
+    console.log(person.age, '修改前')
+    person.age = 456
+    console.log(person.age, '修改后')
+
+
+    function Animal() {
+    }
+
+    Animal.prototype.speak = function () {
+        console.log('原型上的this', this)
+        return this;
+    }
+
+    Animal.eat = function () {
+        console.log('es5构造函数上的方法', this)
+        return this;
+    }
+
+    let obj = new Animal();
+    obj.speak()
+    let speak = obj.speak;
+    speak(); // global object
+
+    let eat = Animal.eat;
+    eat();
+</script>
+</body>
+
+</html>

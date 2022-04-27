@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Person {
+        static names = 123
+    }
+
+    class Student extends Person {
+        static age = 18
+    }
+
+    // 这里不能用关键字name的
+    // 静态公有属性确实可以继承的，通过原型链访问到
+    console.log(Student.names)
+
+    // class ClassWithStaticField {
+    //     static baseStaticField = 'base field';
+    // }
+    //
+    // class SubClassWithStaticField extends ClassWithStaticField {
+    //     static subStaticField = 'sub class field';
+    // }
+    //
+    // console.log(SubClassWithStaticField.subStaticField);
+    // // 预期输出值: "sub class field"
+    //
+    // console.log(SubClassWithStaticField.baseStaticField);
+    // // 预期输出值: "base field"
+</script>
+</body>
+</html>

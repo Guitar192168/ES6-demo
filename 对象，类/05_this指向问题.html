@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+这里加入es6和es5的对比
+<script>
+    class Polygon {
+        constructor() {
+            this.name = "Polygon";
+        }
+    }
+
+    class Square extends Polygon {
+        constructor() {
+            super();
+        }
+    }
+
+    class Rectangle {
+        constructor() {
+            this.name = 123
+            // 就算这里写上this.name = 123也不行
+            // 因为Square调用了调用了super()，去调用了父类的构造函数，父类的中的
+            // this.name，子类也能获取到了
+            // new 的时候this指向新创建的空对象
+            // 所以这里的 name是'Polygon'
+        }
+    }
+
+    // 就算放开这里的注释，实例对象也是先从this.name中获取到name属性  'Polygon'
+    Rectangle.prototype.name = 456
+
+    // 虽然这里的Square指向的原型发生了改变，但是在被new调用，创建实例对象的时候，仍然通过super调用了父类的构造函数
+
+    Object.setPrototypeOf(Square.prototype, Rectangle.prototype);
+
+    console.log(Object.getPrototypeOf(Square.prototype) === Polygon.prototype); //false
+    console.log(Object.getPrototypeOf(Square.prototype) === Rectangle.prototype); //true
+
+    let newInstance = new Square();
+    console.log(newInstance.name); //Polygon
+
+    /**
+     * es5的this，就算是原型上的speak方法，也不是无脑一直指向实例对象的。如果发生了隐式转换，也是会指向window的
+     * @param name
+     * @constructor
+     */
+    function Animal(name) {this.name = name }
+
+    Animal.prototype.speak = function() {
+        console.log('原型上的thistory',this)
+        return this;
+    }
+
+    Animal.eat = function() {
+        console.log(this)
+        return this;
+    }
+
+    Animal.eat()
+    let obj = new Animal(123);
+    obj.speak()
+    let speak = obj.speak;
+    speak(); // global object
+
+    let eat = Animal.eat;
+    eat(); // global object
+
+</script>
+</body>
+</html>

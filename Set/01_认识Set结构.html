@@ -10,6 +10,10 @@
 new Set()里面需要传数组[1,2,3]或者字符串
 传基本类型的值会报错
 Uncaught TypeError: number 1 is not iterable (cannot read property Symbol(Symbol.iterator))
+
+Set不会发生类型转换 '1'与1在Set结构里是两个值 唯一不同于平常的是对于NaN，Set觉得NaN是相等的
+
+Set可以用来去重
 <script>
 
     let a = new Set([1, 2])
@@ -29,7 +33,6 @@ Uncaught TypeError: number 1 is not iterable (cannot read property Symbol(Symbol
     console.log(a.add(NaN))
     //    再次添加NaN  不会重复添加
     console.log(a.add(NaN))
-
     //而对于对象和数组，则认为不是同一个
     console.log(a.add({}))
     console.log(a.add({}))

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Person {
+        constructor(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        eat() {
+            console.log('eat的this', this)
+            return this
+        }
+
+        static say() {
+            // 这里的this指向的class本身
+            console.log('static的say方法的this', this)
+            return this
+        }
+    }
+
+
+    let p1 = new Person(123, 456)
+    p1.eat() // 这里的this指向的实例对象
+    Person.say() // 这里的this指向的class本身
+
+    // console.log(p1.eat());
+    // let a = p1.eat
+    // a()
+    //
+    // Person.say()
+    // let b = Person.say
+    // b()
+
+
+</script>
+</body>
+</html>

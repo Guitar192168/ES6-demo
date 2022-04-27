@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+extends继承
+用于创建一个类作为另一个类的子类
+如果子类内部有constructor一定要调用super才能使用this
+constructor(name, age) {
+super(name, age)
+this.name = name
+this.age = age
+}
+子类这里的参数，需要在constructor和super内都写一遍
+
+继续的.prototype必须是一个Object或者null
+这里的Object是指必须有constructor这个构造器
+是null的时候，就没法创建实例对象了
+<script>
+    class Person {
+        name = 'zhangsan'
+        age = 18
+
+        constructor(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        static eat() {
+            console.log('父类的静态方法')
+        }
+
+        say() {
+            console.log('父类的say方法')
+        }
+    }
+
+    class Student extends Person {
+        constructor(name, age) {
+            super(name, age)
+            this.name = name
+            this.age = age
+        }
+
+        studentSay() {
+            //子类无法调用父类的静态方法
+            // super.eat()
+            super.say()
+        }
+
+        static studentEat() {
+            //子类的静态方法倒是可以调用父类的静态方法
+            super.eat()
+            return 1234
+        }
+
+
+        //定义同父类同名的方法
+        say() {
+            console.log('子组件的say方法')
+        }
+    }
+
+    console.log(Student.studentEat(), '子类的静态方法里通过super去调用父类的静态方法')
+    const stu = new Student('李四', 20)
+    console.log(stu)
+    stu.studentSay()
+    //重名时优先使用子类的方法
+    stu.say()
+
+
+    /**
+     *是null的时候，就没法创建实例对象了
+     */
+    class nullExtends extends null {
+        constructor() {}
+    }
+
+    Object.getPrototypeOf(nullExtends); // Function.prototype
+    Object.getPrototypeOf(nullExtends.prototype) // null
+
+    new nullExtends(); //ReferenceError: this is not defined
+
+</script>
+</body>
+</html>

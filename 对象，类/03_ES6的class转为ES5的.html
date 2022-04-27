@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  // 不懂的话，把这个class转为es5的形式
+  //
+  function Person(name, age) {
+    this.name = name
+    this.age = age
+    console.log(arguments.callee)
+    // 或者是
+    arguments.callee.bar = function () {
+      console.log('es5模拟es6的静态方法')
+    }
+  }
+
+  Person.say = function () {
+    console.log(this)
+  }
+
+  Person.prototype.eat = function () {
+    console.log('ES5的eat', this)
+    // return this
+  }
+
+  let person = new Person()
+  // Person.say()
+  Person.bar.log
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+有三个参数，
+value
+第一个是要序列化成JSON的值，可以是对象或者是原始值
+replacer
+第二个可以是一个函数，符合该函数条件的值才会被序列化。
+如果该参数是一个数组，则只有包含在这个数组中的属性名才会被序列化到最终的 JSON 字符串中；
+如果是null则表示整个value都会被序列号
+space
+第三个参数，美化序列化代码的，类型为number，为几代表有几个空格，上限为10；如果是字符串则以该字符串分割。超过10个的字符串自动切掉，以前10个字符串为准。
+没有提供或者为null则没有空格
+<script>
+    console.log(JSON.stringify(Number(1)));
+</script>
+</body>
+</html>
