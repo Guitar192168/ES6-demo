@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    const m = new Map([['name', 123], ['age', 456]])
+    console.log('keys', m.keys()) //{'name', 'age'}
+    console.log('values', m.values()) //   {123, 456}
+    console.log('entries', m.entries()) //{'name' => 123, 'age' => 456}
+
+    console.log('下面这个例子，表示Map结构默认的遍历器接口【Symbol.iterator属性】', '就是entries方法')
+    console.log(m[Symbol.iterator] === m.entries);
+    console.log('下面的例子等同于Map.entries了')
+    for (let [key, value] of m) {
+        console.log(key, value)
+    }
+</script>
+</body>
+</html>

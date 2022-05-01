@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Map对于键的判断，实际是跟内存地址绑定的。只要内存地址不一样，就视为两个不同的键
+<script>
+    // 比如直接
+    const m = new Map()
+    m.set('[a]', 123)
+    console.log('两个[a]看似一样,但实际内存地址完全不同的,会认为这是两个不同的实例')
+    console.log(m.get['a'], '1')
+
+
+    const a = ['b']
+    const m2 = new Map()
+    m2.set(a, 456)
+    console.log(m2.get(['b']), '还是undefined');
+    console.log(m2.get(a));
+
+
+    console.log('这里被认为是两个不同的实例')
+    const b = ['m']
+    const c = ['m']
+    const m3 = new Map()
+    m3.set(b, 123).set(c, 456)
+    console.log(m3)
+    console.log(m3.get(b))
+    console.log(m3.get(c))
+
+    console.log('对于基本类型来说，只要set和get时候，两个键严格相等，就认为是同一个键值')
+    const m4 = new Map()
+    m4.set(-0, 123)
+    console.log(m4.get(+0), '+0和-0认为是同一个键');
+    m4.set(true, 456)
+    console.log(m4.get(true), "布尔值true和字符串'true'不是同一个键")
+    console.log(m4.get('true'))
+    m4.set(undefined, 789)
+    // m4.set(null, 78910)
+    console.log(m4.get(undefined), 'undefined和null也是不同的')
+    console.log(m4.get(null))
+    console.log('有个特殊的NaN，虽然自身并不等于自身，但是NaN在Map会视为同一个键')
+    m4.set(NaN, 123456)
+    console.log(m4.get(NaN),'NaN')
+
+</script>
+</body>
+</html>

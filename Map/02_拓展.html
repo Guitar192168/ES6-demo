@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1. 只要有迭代器iterator属性的，且每个成员是双元素的数组的 数据结构 都可以当作Map的参数，变为Map结构
+2. Map是根据内存地址来做键的
+<script>
+    console.log('重复赋值，只会取最新的一次赋值')
+    console.log('重复赋值', new Map().set('name', 1).set('name', 123));
+
+    // 记得加引号
+    console.log('重复赋值，只会取最新的一次赋值')
+    const map = new Map([['name', 1], ['name', 2]])
+    console.log(map, 'map')
+
+    // Map实际执行了
+    const list = [['name', 1], ['age', 18]]
+    const d = new Map()
+
+    list.forEach(([key, value]) => {
+        console.log(key, value)
+        d.set(key, value)
+    })
+    console.log(d)
+
+    console.log('只要有迭代器iterator属性的，且每个成员是双元素的数组的   数据结构 都可以当作Map的参数，变为Map结构')
+    // 其实Set和Map结构都可以直接Map的参数
+    //Set结构作为参数
+    // 不是new Set(['name', 1], ['sex', 2]), 需要多嵌套一层括号
+    const set = new Set([['name', 1], ['sex', 2]])
+    console.log(set)
+    console.log(new Map(set))
+
+    // Map结构作为参数
+    const m2 = new Map([['name', 1], ['age', 19]])
+    console.log(new Map(m2))
+</script>
+</body>
+</html>

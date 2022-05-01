@@ -9,28 +9,36 @@
 </head>
 
 <body>
-    <script>
-        let m = new Map()
+键的范围不限于字符串，各种类型的值，包括对象，也都是可以的
 
-        m.set('name', '123')
-        m.set('sexy', 'male')
+也可以传入数组，得注意写法 [['age',18],['sex',1]]
+切记要加引号!!
+<script>
+    const m = new Map()
+    const o = {name: 1}
+    m.set('name', '123')
+    m.set('sexy', 'male')
+    console.log('set给对象o设为m的一个键。123作为值。然后返回整个Map结构。如果该键已经有值，则会更新值。否则只是新增')
+    m.set(o, 123)
+    console.log('而且因为返回的Map结构，所以set可以链式调用')
+    m.set(1, 123).set(2, 789)
+    console.log(m)
+    // 再用get方法读取这个值
+    console.log(m.get(o))
+    console.log(m.get('o11'), '获取一个不存在的键的时候，返回undefined')
 
+    let demo = {
+        test: '测试一下,键不限于字符串'
+    }
+    m.set(demo, '测试一下')
 
-        let demo = {
-            test:'测试一下,键不限于字符串'
-        }
-        m.set(demo,'测试一下')
-
-        // console.log(m.size);
-        // console.log(m.get('name'));
-        // console.log(m.has('sexy'));
-        // console.log(m);
-        m.clear()
-        console.log(m);
-
-    </script>
-
-
+    console.log(m.size);
+    console.log(m.has('sexy'), 'has');
+    console.log(m.has('se'), 'has');
+    console.log(m);
+    m.clear() // 也有clear方法
+    console.log(m);
+</script>
 </body>
 
 </html>

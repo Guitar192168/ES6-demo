@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let m = new Map().set('1', 'a').set('2', 'b').set('3', 'c')
+    console.log(m.get(1))
+    console.log(m.get('1'))
+
+    console.log(typeof m);
+    console.log(Object.prototype.toString.call(m))
+    console.log(m.constructor)
+    //
+    console.log('1.拓展运算符')
+    let a = [...m]
+    console.log(a)
+    console.log(a.constructor)
+    //
+    console.log('2.Array.from')
+    const b = Array.from(m)
+    console.log(b)
+    console.log(b.constructor)
+
+    //
+    console.log('3.不行')
+    const c = Array.prototype.slice.call([...m])
+    console.log(c)
+
+    //
+    console.log('4.Map转为对象', '如果map的键值对都是字符串，则可以无损的转为对象')
+    const m2 = new Map().set('a', 2).set('b', 456).set(['c'], 789).set({name: 1}, 888)
+
+    function changeMapToObj(m) {
+        const obj = Object.create(null)
+        for (let [key, value] of m) {
+            console.log(key, value)
+            obj[key] = value
+        }
+        return obj
+    }
+
+    let res = changeMapToObj(m2)
+    console.log(res, 'Map转为对象的结果')
+
+    // 对象转为Map
+    let d = {name: 1, b: 2}
+    console.log(new Map(Object.entries(d)))
+</script>
+</body>
+</html>
