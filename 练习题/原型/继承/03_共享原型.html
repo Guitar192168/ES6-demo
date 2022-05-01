@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    Father.prototype.newName = '123'
+
+    function Father() {
+
+    }
+
+    function Son() {
+
+    }
+
+    function inherit(Target, Origin) {
+        // function F() {
+        // }
+
+        // F.prototype = Origin.prototype
+
+        // Target.prototype = new F()
+        Target.prototype = Object.create(Origin.prototype)
+        Target.prototype.constructor = Target
+        //超类
+        Target.prototype.uber = Origin.prototype
+        // Target.prototype = new Origin()
+    }
+
+    // Son.prototype = Father.prototype
+    inherit(Son, Father)
+
+    Son.prototype.sex = 1
+    let son = new Son()
+    console.log(son.constructor)
+    console.log(son.sex)
+    console.log(son.newName)
+    let father = new Father()
+    console.log(father.sex)
+    console.log(father.newName)
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+字符串的length属性是只读的
+如果想通过call或者apply借用数组的方法，那么只能借用不影响原数组/原字符串的数组方法
+<script>
+    let a = ' 0021210 '
+    console.log(a.replaceAll(' ', '').trim());
+
+    console.log(Array.prototype.join.call(a, '-'));
+    //使用reverse则不行，因为reverse会修改原数组
+    // console.log(Array.prototype.reverse.call(a))
+</script>
+</body>
+</html>

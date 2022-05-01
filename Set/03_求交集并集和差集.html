@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = new Set([1, 2, 3])
+    let b = new Set([3, 4, 5])
+
+    // 并集
+
+    let c = new Set([...a, ...b])
+    console.log(c, '并集')
+
+    //交集
+
+    let d = [...a].map(item => b.has(item) && item).filter(item => item)
+    // 写的过于麻烦
+    let e = [...a].filter(item => b.has(item))
+    console.log(d, '交集', '写的过于麻烦')
+    console.log(e, '交集')
+
+    // 差集 a相对于b的差集
+    let f = [...a].filter(item => !b.has(item))
+    console.log(f, '差集')
+
+</script>
+</body>
+</html>

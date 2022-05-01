@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+splice 可以删除或者替换，或者新增元素来修改原数组。
+返回的数组：由被删除的元素组成。如果是新增元素，则返回空数组。替换元素的话，会把被替换，也可以说是被删除的元素返回。
+
+接收三个参数，第一个是起始位置start 。必传。
+第二个是要删除多少个元素 deleteCount。可选。不填则默认从start开始删除。包含start位。
+第三个是要添加哪些个元素，可以添加多个的。如果不传则默认删除数组元素。
+<script>
+    let a = [1, 2, 3, 4, 5]
+    //删除index为3及其以后的元素
+    console.log(a.splice(3));
+    console.log(a)
+
+    let b = [1, 2, 3, 4, 5]
+    //从索引为2的位置删除一个元素，并插入'a','b'
+    // 可以理解为把index为2的元素先删去，再就地加入 新增的元素。
+    console.log(b.splice(2, 1, 'a', 'b'))
+    console.log(b)
+
+    let c = [1, 2, 3, 4, 5]
+    //新增元素
+    console.log(c.splice(3, 0, 123));  // 返回空数组
+    console.log(c)
+
+    //从索引为-2的位置删除一个元素 并插入123
+    let d = [1, 2, 3, 4, 5]
+    console.log(d.splice(-2, 1, 123))
+    console.log(d)
+</script>
+</body>
+</html>

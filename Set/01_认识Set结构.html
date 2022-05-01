@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-new Set()里面需要传数组[1,2,3]或者字符串
+new Set()里面需要传数组[1,2,3]或者字符串'123'  或者伪数组
 传基本类型的值会报错
 Uncaught TypeError: number 1 is not iterable (cannot read property Symbol(Symbol.iterator))
 
@@ -15,6 +15,7 @@ Set不会发生类型转换 '1'与1在Set结构里是两个值 唯一不同于�
 
 Set可以用来去重
 add has delete clear
+size 类似于length
 <script>
 
     let a = new Set([1, 2])

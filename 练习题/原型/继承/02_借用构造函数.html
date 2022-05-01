@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+缺点：只能借用函数的方法，不能拿到函数的原型上的方法
+而且每次多调用了一下Person方法
+<script>
+    function Person(name, age) {
+        this.name = name
+        this.age = age
+    }
+
+    function Student(name, age, sex) {
+        Person.call(this, name, age)
+        this.sex = sex
+    }
+
+    let stu = new Student('张三', 18, 1)
+    console.log(stu)
+</script>
+</body>
+</html>
