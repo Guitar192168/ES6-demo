@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function _toParts(value) {
+            var parts = (value + '').split('.')
+
+            if (parts[1]) {
+                var len = parts[1].length
+                if (len > 2) {
+                    /**
+                     * 解决大数字值使用toFixed进行四舍五入时不准确问题
+                     * 99999999999999.1.toFixed(2) 返回99999999999999.09
+                     */
+                    parts[1] = parts[1].slice(0, 3)
+                    if (parts[1][2] > 4) {
+                        parts[1] = +parts[1].slice(0, 2) + 1
+                        if (parts[1] >= 100) {
+                            parts[1] = '00'
+                            parts[0] = +parts[0] + 1 + ''
+                        }
+                    } else {
+                        parts[1] = parts[1].slice(0, 2)
+                    }
+                } else if (len < 2) {
+                    parts[1] += '0'
+                }
+            } else {
+                parts[1] = '00'
+            }
+
+            return parts.join('.')
+        }
+
+        console.log(194939.425.toFixed(2),'11')
+        
+
+
+    </script>
+</body>
+
+</html>

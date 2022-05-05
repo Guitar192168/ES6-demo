@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            margin: 100px auto;
+            background: #00C68C;
+            overflow: hidden;
+            border: 1px solid #020A22;
+        }
+
+        .container:after {
+            content: " ";
+            /* 相对父元素居中 */
+            position: absolute;
+            /* 给个双倍宽度的元素 */
+            width: 800px;
+            height: 200px;
+            background: white;
+            left: -200px;
+            bottom: -185px;
+            /* 设置弧度50% */
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"> </div>
+</body>
+
+</html>

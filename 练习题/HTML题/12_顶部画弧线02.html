@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            margin: 100px auto;
+            background: #00C68C;
+            overflow: hidden;
+            border: 1px solid #020A22;
+        }
+
+        .container:after {
+            content: " ";
+            position: absolute;
+            width: 400px;
+            height: 26px;
+            background: white;
+            left: -0;
+            bottom: -13px;
+            border-radius: 50%;
+        }
+
+        .demo{
+            border-radius: 100% 0% 48% 52% / 47% 0% 100% 53% ;
+            height: 300px;
+            width: 300px;
+            background: #008c8c;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"> </div>
+
+    <hr />
+
+    <div class="demo">
+
+    </div>
+</body>
+
+</html>
