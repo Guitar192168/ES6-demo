@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            height: 100px;
+            border: 1px solid #c3c3c3;
+            display: flex;
+        }
+
+        /* 表现为：可以一直同比例缩小，但是不能发大，最大值为flex-basis设置的值 */
+        /*#main div {*/
+        /*    flex-grow: 0;*/
+        /*    flex-shrink: 1;*/
+        /*    flex-basis: 150px;*/
+        /*}*/
+        /* 表现为：可以一直同比例放大，但是不能缩小，最小值为flex-basis设置的值 */
+        /*#main div {*/
+        /*    flex-grow: 1;*/
+        /*    flex-shrink: 0;*/
+        /*    flex-basis: 150px;*/
+        /*}*/
+
+        #main {
+            height: 100px;
+            border: 1px solid #c3c3c3;
+            display: flex;
+        }
+
+        /**
+        统一给一个初始值，第二个元素跟其他元素相差80px整
+         */
+        /*#main div {*/
+        /*    flex-grow: 1;*/
+        /*    flex-shrink: 1;*/
+        /*    flex-basis: auto;*/
+        /*    !*flex-basis: 20px;*!*/
+        /*}*/
+
+        /*#main div:nth-of-type(2) {*/
+        /*    flex-basis: 100px;*/
+        /*}*/
+
+        #main div {
+            width: 100px;
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: auto;
+        }
+        #main div:nth-of-type(2) {
+            flex-basis: 0%;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <div style="background-color:coral;">1</div>
+    <div style="background-color:lightblue;">2</div>
+    <div style="background-color:khaki;">3</div>
+    <div style="background-color:pink;">4</div>
+    <div style="background-color:lightgrey;">5</div>
+</div>
+</body>
+</html>
