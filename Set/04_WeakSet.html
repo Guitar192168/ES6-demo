@@ -8,10 +8,11 @@
 WeakSet 的一个用处，是储存 DOM 节点，而不用担心这些节点从文档移除时，会引发内存泄漏。
 
 相比Set，
-元素只能是对象
+元素只能是对象 new WeakSet([1,2])是错误的，得是new WeakSet([[1],[2]])
 弱引用
 
 没有size，无法遍历
+可以布置私有属性
 <script>
     const s = new WeakSet([{name: 1}, {age: 2}])
     console.log(s)
@@ -30,7 +31,6 @@ WeakSet 的一个用处，是储存 DOM 节点，而不用担心这些节点从�
     s3.add([null])
     console.log(s3, s3.has([null]), '为false')
     console.log(s3.has(d), '为true')
-
 
 
     //下面代码保证了Foo的实例方法，只能在Foo的实例上调用。

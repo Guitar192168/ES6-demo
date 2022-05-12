@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    !!澄清:WeakMap键名所指向的对象，才是不进入垃圾回收机制。  不是自己以为的整个WeakMap
+
+
+    
+    WeakMap 就是为了解决这个问题而诞生的，它的键名所引用的对象都是弱引用，即垃圾回收机制不将该引用考虑在内。
+    因此，只要所引用的对象的其他引用都被清除，垃圾回收机制就会释放该对象所占用的内存。也就是说，一旦不再需要，WeakMap
+    里面的键名对象和所对应的键值对会自动消失，不用手动删除引用。
+
+
+    跟Map的区别
+    key的区别，只接收对象作为key(null除外)(也可以接收数组类型的参数)
+    弱引用，防止内存泄漏
+    WeakMap的专用场合就是，它的键所对应的对象，可能会在将来消失。WeakMap结构有助于防止内存泄漏。
+
+
+
+    注意，WeakMap 弱引用的只是键名，而不是键值。键值依然是正常引用。
+
+
+
+    WeakMap 与 Map 在 API
+    上的区别主要是两个，一是没有遍历操作（即没有keys()、values()和entries()方法），也没有size属性。
+    因为没有办法列出所有键名，某个键名是否存在完全不可预测，跟垃圾回收机制是否运行相关。这一刻可以取到键名，
+    下一刻垃圾回收机制突然运行了，这个键名就没了，为了防止出现不确定性，
+    就统一规定不能取到键名。
+    二是无法清空，即不支持clear方法。因此，WeakMap只有四个方法可用：get()、set()、has()、delete()。
+
+
+    WeakMap 的另一个用处是部署私有属性。
+</body>
+<script>
+    //注意，WeakMap 弱引用的只是键名，而不是键值。键值依然是正常引用。
+    const wm = new WeakMap();
+    let key = {};
+    let obj = {
+        foo: 1
+    };
+
+    wm.set(key, obj);
+    obj = null;
+    wm.get(key)
+    // Object {foo: 1}
+</script>
+
+</html>
