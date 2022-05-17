@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--比较运算符这里，会调用valueOf返回对象的原始值。-->
+
+<body>
+    <div>
+        ToPrimitive
+    </div>
+    <div>
+        操作符对对象做转换的时候，会自动调用valueOf方法, 返回对象的原始值去进行比较。如果valueOf返回的不是原始值， 就会调用toString方法。 基本都是先调用valueOf返回原始值，然后调用toString返回字符串
+    </div>
+    <script>
+        Object.prototype.toString = function() {
+            console.log("Object的toString");
+            // return 11
+            // return {}
+        }
+
+        Object.prototype[Symbol.toPrimitive] = function(){
+            console.log('Symbol.toPrimitive')
+            return 11
+        }
+
+        Object.prototype.valueOf = function() {
+                console.log('Object的valueOf');
+                // return 11
+                // return {}
+
+                // 什么也不返回，就是返回undefined
+            }
+            var a = {
+                name: 1
+            }
+            console.log(a == 11);
+            //
+            // // const b = {}
+            // // console.log(b < 1);
+
+        // var obj = {
+        //     a: 1
+        // }
+        // console.log(obj in obj)
+    </script>
+</body>
+
+</html>
