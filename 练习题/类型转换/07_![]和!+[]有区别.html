@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log([] + [])
+        let a = [] + []
+        console.log(a.length);
+
+        console.log(![],'![]')
+        console.log(Boolean([]),'Boolean([])竟然为true，budong')
+        console.log(+[],'+[]')
+        console.log(!+[],'') // 这里先执行+[]然后再取反!
+
+        let b = !+[] + [] + ![]
+        console.log(b,typeof b)
+        // 错了！！    // 第一步先+[]变为''空字符串
+
+
+        /**
+         * 是先 +[]变为0，然后取反!0就是true，然后true+[]
+         * +[]隐式转换为'',即为true+'' => 'true'
+         * 然后![]优先级更高 => 是false
+         * 然后'true'+'false'  结果为'truefalse'
+         */
+    </script>
+</body>
+
+</html>

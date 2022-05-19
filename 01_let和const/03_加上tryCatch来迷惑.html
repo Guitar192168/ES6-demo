@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * catch里面的x赋值为了1
+     * 而catch里面没有y就顺着作用域往上，找到全局的y，赋值为2
+     */
+    (() => {
+        let x, y;
+        try {
+            throw new Error()
+        } catch (x) {
+            (x = 1), (y = 2)
+            console.log(x)
+        }
+        console.log(x)
+        console.log(y)
+    })();
+</script>
+</body>
+</html>
