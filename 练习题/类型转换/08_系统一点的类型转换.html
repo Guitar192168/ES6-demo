@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * 布尔值
+     *
+     * 原始值转布尔值
+     */
+    console.log('原始值转布尔值，只有这6种能成为false的情况，其他都是true。包括Boolean("false")')
+    console.log(Boolean(), '(Boolean()'); // 不传任何参数时 直接传空是个false
+    console.log(Boolean(''), "Boolean('')")
+    console.log(Boolean(false), 'Boolean(false)')
+    console.log(Boolean(undefined), 'Boolean(undefined)')
+    console.log(Boolean(null), 'Boolean(null)')
+    console.log(Boolean(NaN), 'Boolean(NaN)')
+    console.log('------')
+    console.log(Boolean('false'), 'Boolean(\'false\')是true')
+    /**
+     * 引用值变布尔值
+     * 只要是引用类型变布尔值，都为true
+     */
+
+    console.log('引用值变布尔值')
+    console.log(Boolean({}), 'Boolean({})')
+    console.log(Boolean([]), 'Boolean([])')
+    console.log(Boolean(function foo() {
+    }), 'Boolean(function foo(){})')
+    console.log(Boolean(new Boolean(false)), '!!!Boolean(new Boolean(false))','这里也是true')
+
+    /**
+     * 原始值转字符串
+     */
+    console.log('%c原始值转字符串', 'color:orange;font-size:30px;padding:10px')
+    console.log(String(undefined), 'String(undefined)')
+    console.log(String(null), 'String(null)')
+    console.log(String(""), 'String("")')
+    console.log(String(), 'String()')
+    console.log(String('123'), 'String("123")') // 返回与之相等的值
+    console.log(String(0), String(-0))
+
+    /**
+     *     原始值转数字类型
+     */
+    console.log('%c原始值转数字类型', 'color:orange;font-size:30px;padding:10px')
+    console.log(Number(''), 'Number("")')
+    console.log(Number(), 'Number()')
+    console.log(Number(undefined), 'Number(undefined)')
+    console.log(Number(null), 'Number(null)')
+    console.log(Number(NaN), 'Number(NaN)')
+    console.log(Number([]), 'Number([])')
+    console.log(Number([0]), 'Number([0])')
+    console.log(Number([1, 2, 3]), 'Number([1, 2, 3])')
+    console.log(Number({}), 'Number({})')
+    console.log(Number('000123'), 'Number(\'000123\')') //前面的0会被清除
+
+    console.log(Number('12,3'), 'Number(\'12,3\')') // 如果有一个字符不是数字，就会返回NaN
+    console.log(parseInt('12,3'), 'parseInt(\'12,3\')')  //所以保险起见还是用parseInt
+    console.log(parseInt('123 123'), 'parseInt(\'123 123\')')  // =》 123
+
+    /**
+     * parseInt也值得单独拉一块
+     */
+
+    console.log('对null和undefined的处理与Number不同')
+    console.log(parseInt(null), 'parseInt(null)', 'NaN')
+    console.log(parseInt(undefined), 'parseInt(undefined)', 'NaN')
+    console.log(parseInt('0.1'), 'parseInt(\'0.1\')结果是0');
+    console.log(parseInt('0.5'), 'parseInt(\'0.5\')结果是0');
+    console.log(parseInt('0.9'), 'parseInt(\'0.9\')结果是0');
+    // todo
+
+
+    /**
+     * 对象转字符串和数字
+     * null和undefined没有toString方法。比较特殊
+     */
+
+    console.log('valueOf和toString');
+    // toPrimitive
+</script>
+</body>
+</html>
