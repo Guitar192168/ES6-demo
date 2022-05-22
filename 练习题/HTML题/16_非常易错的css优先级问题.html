@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 100px;
+    }
+
+    .red {
+      background-color: red;
+    }
+
+    .blue {
+      background-color: blue;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>
+    并不是自己想的 第一个div为蓝色，第二个div为红色。而是都为蓝色
+  </h2>
+  <div class="red blue"></div>
+  <div class="blue red "></div>
+  <h2>css优先级问题。 blue和red  都是类class都是一样的级别。 style中谁定义的靠后，就用谁</h2>
+</body>
+
+</html>

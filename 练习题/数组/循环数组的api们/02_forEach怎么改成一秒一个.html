@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>怎么给改成一秒一个</title>
+</head>
+
+<body>
+<script>
+    const list = [1, 2, 3];
+    const square = num => {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(num * num)
+            }, 1000);
+        })
+    }
+
+    // async function test() { 这样直接把async提前，是不行的
+    function test() {
+        list.forEach(async x => {
+            const res = await square(x)
+            console.log(res);
+        })
+    }
+
+    /*
+    * 换成test环境即可
+    * 因为上面那种写法，是在 forEach的回调函数里进行的  async await
+    * 就等于几乎同时开启了三个一模一样的回调函数
+    *
+    * 而for循环这里，是async内部，开启了三个await
+    * await square(1)
+    * await square(2)
+    * await square(3)
+    * 等前一个await执行完，才会执行下一个的
+    * */
+
+
+    // async function test() {
+    //     for (let i = 0; i < list[i]; i++) {
+    //         let res = await square(list[i])
+    //         console.log(res)
+    //     }
+    // }
+
+
+    test()
+
+    /*
+    * 这个例子约等于 下面这个例子。相当于同时开启了多个定时器。开启的顺序就是打印的顺序了。然后1s后就都打印了
+    * */
+
+    function a() {
+        setTimeout(() => {
+            console.log(1)
+        }, 1000)
+    }
+
+    function b() {
+        setTimeout(() => {
+            console.log(2)
+        }, 1000)
+    }
+
+    let i = 0;
+    let arr = [a, b]
+    // console.log(arr)
+    // while (i < arr.length) {
+    //     arr[i]()
+    //     i++
+    // }
+
+
+    /*
+    * MDN自定义的forEach补丁
+    * */
+    Array.prototype.forEach = function (callback, thisArg) {
+
+        var T, k;
+
+        if (this == null) {
+            throw new TypeError(' this is null or not defined');
+        }
+
+        // 1. Let O be the result of calling toObject() passing the
+        // |this| value as the argument.
+        var O = Object(this);
+        console.log('arguments', arguments)
+        console.log('this', this, Object.prototype.toString.call(this))
+        console.log('O', O, Object.prototype.toString.call(O))
+        console.log('thisArg', thisArg, Object.prototype.toString.call(thisArg))
+        // 2. Let lenValue be the result of calling the Get() internal
+        // method of O with the argument "length".
+        // 3. Let len be toUint32(lenValue).
+        var len = O.length >>> 0;
+
+        // 4. If isCallable(callback) is false, throw a TypeError exception.
+        // See: http://es5.github.com/#x9.11
+        if (typeof callback !== "function") {
+            throw new TypeError(callback + ' is not a function');
+        }
+
+        // 5. If thisArg was supplied, let T be thisArg; else let
+        // T be undefined.
+        if (arguments.length > 1) {
+            T = thisArg;
+        }
+
+        // 6. Let k be 0
+        k = 0
+        while (k < len) {
+            var kValue;
+            if (k in O) {
+                kValue = O[k];
+                callback.call(T, kValue, k, O);
+            }
+            k++;
+        }
+    }
+
+
+    list.forEach((item, index) => {
+        console.log('item', item, index);
+    });
+
+
+    /*
+    * 认识一下thisArg
+    * */
+
+    // function Counter() {
+    //     this.sum = 0;
+    //     this.count = 0;
+    // }
+    //
+    // Counter.prototype.add = function(array) {
+    //     array.forEach(function(entry) {
+    //         this.sum += entry;
+    //         ++this.count;
+    //     }, this);
+    //     // ^---- Note
+    // };
+    //
+    // const obj = new Counter();
+    // obj.add([2, 5, 9]);
+    // obj.count;
+    // // 3 === (1 + 1 + 1)
+    // obj.sum;
+    // // 16 === (2 + 5 + 9)
+
+</script>
+</body>
+
+</html>

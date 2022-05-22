@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+<script>
+    /**
+     * forEach无法主动跳出循环  可以先用filter过滤，再去forEach
+     * 可以跳出的有for  for-in for-of every some find findIndex
+     *
+     *
+     /*
+     forEach中 慎用async 和await
+     * */
+    let ratings = [5, 4, 5];
+    let sum = 0;
+    let sumFunction = async function (a, b) {
+        return a + b;
+    }
+    ratings.forEach(async function (rating) {
+        sum = await sumFunction(sum, rating);
+    })
+    console.log(sum)
+    /**
+     * 期望得到14
+     * 但是实际打印的sum是0
+     * 因为console.log是同步事件。会先执行
+     */
+    setTimeout(() => {
+        //就算如此，那也是打印的是5。因为一连生成了三个回调函数，是三个完全独立的async  await。最后一个sum是0+5
+        console.log(sum)
+    }, 2000)
+
+
+    /**
+     *  循环时，已删除的元素或者是 稀疏数组 [1,3,,7]这种
+     *  都会被跳过
+     *  其中被删除的，比如用shift()移除的，则整个数组的元素都会往前移一位
+     */
+
+    let arr = ['a', 'b', 'c', 'd']
+    arr.forEach(item => {
+        console.log(item, 'item')
+        if (item === 'b') arr.shift()
+    })
+    console.log(arr, 'arr')
+
+    /**
+     * forEach遍历的范围，在第一次指定回调函数的时候就已经确定了。后续再新增元素到数组内，已经不会被遍历了。
+     */
+    let arr2 = ['a', 'b', 'c', 'd']
+    arr2.forEach(item => {
+        console.log(item, 'item')
+        if (item === 'b') arr.push(789)
+    })
+    console.log(arr2, 'arr2')
+
+    /**
+     * 扁平化数组
+     */
+    const problem = [1, 2, 3, [4, 5, [6, [1,2,3]], 8, 9]];
+
+
+    function flat(arr) {
+        let res = []
+        arr.forEach(item => {
+            if (Array.isArray(item)) {
+                // flat(item)
+                // 写的不好这里
+                res.push(...flat(item))
+            } else {
+                res.push(item)
+            }
+        })
+        return res
+    }
+
+    console.log(flat(problem));
+</script>
+</body>
+
+</html>
