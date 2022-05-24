@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div:nth-child(1) {
+            width: 300px;
+            height: 100px;
+            background-color: #008c8c;
+            transform: skewX(-20deg);
+            border-radius: 10px;
+        }
+
+        p {
+            transform: skewX(20deg);
+        }
+
+        .demo {
+            width: 300px;
+            height: 100px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .demo::before {
+            content: '111';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            background-color: #008c8c;
+            transform: skewX(-45deg);
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <p>
+        直接只用一个transform:skew字体会歪吗
+    </p>
+</div>
+
+<h2>或者只对伪元素进项位移</h2>
+<div class="demo">
+    测试一下偏移伪元素
+    四个角所有偏移量为0，才能被拉伸到宿主元素的尺寸
+</div>
+<div>
+    所以可以嵌套元素
+    div套div。然后内层div内的文字反向偏移。
+    或者
+    伪元素。记得用定位，然后让四个角偏移量为0
+</div>
+</body>
+</html>
