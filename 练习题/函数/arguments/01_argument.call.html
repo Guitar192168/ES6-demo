@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>获取形参长度</title>
+</head>
+
+<body>
+  <script>
+    // function foo(a, b, c = 1) {
+    function foo(a, b, c) {
+      console.log(arguments.length,'实参长度');
+    }
+    console.log(foo.length,'形参长度');
+    foo(1, 2)
+  </script>
+</body>
+
+</html>

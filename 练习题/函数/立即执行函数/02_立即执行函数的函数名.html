@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var b = 10;
+    (function b(){
+      b  = 20
+      c = 30
+      console.log(b)
+      // 立即执行函数的AO作用域，同名的b = 20和函数声明function b 
+      // function b函数优先级更高 所以b = 20被覆盖了。函数内部打印的时候打印的是function b
+      // 而如果定义的是c = 30，则会成为全局变量。
+
+      // 而且b = 20你就算去修改函数名，也是无法修改的。
+    })()
+    console.log(b);
+    console.log(c);
+  </script>
+</body>
+</html>

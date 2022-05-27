@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function isJSON(str) {
+      if (typeof str !== 'string') return false
+      try {
+
+        if (str && typeof JSON.parse(str) === 'object') return true
+        return false
+      } catch (e) {
+        console.log(e, '报错');
+      }
+    }
+
+    let a = JSON.stringify({
+      name: 1
+    })
+
+    console.log(isJSON(a));
+    console.log(isJSON(null));
+    console.log(isJSON(1));
+    console.log(isJSON());
+    //try catch是防止 JSON.parse 转换异常(例如: JSON.parse("{")浏览器报错)，
+    //还要判断转换后知否有值(例如：JSON.parse("null"))，最后判断是否是 object 类型。
+    console.log('script start');
+    setTimeout(function () {
+      console.log('setTimeout');
+    }, 0);
+    Promise.resolve().then(function () {
+      console.log('promise1');
+    }).then(function () {
+      console.log('promise2');
+    });
+    console.log('script end');
+  </script>
+</body>
+
+</html>
