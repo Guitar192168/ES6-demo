@@ -12,11 +12,15 @@
 
     function sleep(time) {
       // let now = new Date().getTime()
-      let now = Date.now()
-      while (Date.now() - now < time) {
-        
+      let now = Date.now() // 还有静态方法
+      while ((Date.now() - now) < time) {
+        continue;        
       }
     }
+
+    console.log(1)
+    sleep(3000)
+    console.log(2)
   </script>
 </body>
 </html>
