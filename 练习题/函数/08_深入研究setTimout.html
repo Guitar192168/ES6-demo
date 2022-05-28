@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 参数：function 或者code 也即传入字符串，但是有风险的
+    // 第二个参数延迟时间
+    // 第三个参数，arg1,arg2,,,, argN 附加参数。一旦定时器到期，则会把这些参数传递给第一个参数回调函数里
+    // 相比以前的认知，setTimeout有三个参数的。第三个参数会在时间到了的时候传递给第一个参数
+    // 返回值：一个正整数的timeoutId
+
+    let myArray = ["zero", "one", "two"];
+    myArray.myMethod = function (sProperty) {
+      // alert(arguments.length > 0 ? this[sProperty] : this);
+      console.log(arguments.length > 0 ? this[sProperty] : this);
+    };
+
+    // 正常调用
+    // myArray.myMethod(); // prints "zero,one,two" // this都指向myArray
+    // myArray.myMethod(1); // prints "one"
+
+    // 这里this指向了window，这很正常，隐式丢失了
+    // setTimeout(myArray.myMethod, 1000); // prints "[object Window]" after 1 second // 原本是alert
+    // setTimeout(myArray.myMethod, 1500, "1"); // prints "undefined" after 1.5 seconds
+
+    // // 解决方法
+    // // 用一个函数单独包裹一下
+    // setTimeout(function () {
+    //   myArray.myMethod()
+    // }, 1600);
+
+    // setTimeout(function () {
+    //   myArray.myMethod(1)
+    // }, 1600);
+
+    // 箭头函数也可以
+    // setTimeout(() => {
+    //   myArray.myMethod()
+    // }, 1700)
+
+    // setTimeout(() => {
+    //   myArray.myMethod(1)
+    // }, 1700)
+
+    // 你甚至可以用bind来解决
+
+    let myArray2 = ["zero", "one", "two"];
+    myArray2.myMethod = function (sProperty) {
+      // alert(arguments.length > 0 ? this[sProperty] : this);
+      console.log(arguments.length > 0 ? this[sProperty] : this);
+    }.bind(myArray2)
+
+    setTimeout(myArray2.myMethod(), 1000);
+
+    setTimeout(myArray2.myMethod(1), 1000);
+
+    // 当然了，bind还有妙用
+    for (var i = 1; i <= 5; i++) {
+      setTimeout(function (i) {
+        console.log(i);
+      }.bind(null, i), i * 1000);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
   <script>
     // 非promise的，使用while占用主线程
@@ -14,13 +16,31 @@
       // let now = new Date().getTime()
       let now = Date.now() // 还有静态方法
       while ((Date.now() - now) < time) {
-        continue;        
+        continue;
       }
     }
 
     console.log(1)
     sleep(3000)
     console.log(2)
+
+    // promise写法
+    function sleep2(time) {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve()
+        }, time);
+      })
+    }
+    
+    async function test() {
+      console.log(1);
+      await sleep2(3000)
+      console.log(2);
+    }
+
+    test()
   </script>
 </body>
+
 </html>

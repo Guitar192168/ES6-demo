@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // for (let i = 1; i <= 5; i++) {
+    //   setTimeout(function timer() {
+    //     console.log(i)
+    //   }, i * 1000)
+    // }
+
+
+    // IIFE 立即执行函数
+    // for (var i = 1; i <= 5; i++) {
+    //   (function (i) {
+    //     setTimeout(function () {
+    //       console.log(i);
+    //     }, i * 1000)
+    //   }(i))
+    // }
+
+    // bind写法
+    // for (var i = 1; i <= 5; i++) {
+    //   setTimeout(function timer(i) {
+    //     console.log(i);
+    //   }.bind(null, i), i * 1000);
+    // }
+
+    //setTimeout第三个参数
+    for (var i = 1; i <= 5; i++) {
+      setTimeout(function timer(i) {
+        console.log(i);
+      }, i * 1000, i);
+    }
+
+    // 闭包写法
+    // var loop = function (i) {
+    //   setTimeout(function timer() {
+    //     console.log(i);
+    //   }, i * 1000);
+    // };
+
+    // for (var i = 1; i <= 5; i++) {
+    //   loop(i);
+    // }
+  </script>
+</body>
+
+</html>
