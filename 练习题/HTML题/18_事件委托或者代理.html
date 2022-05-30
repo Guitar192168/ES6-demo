@@ -8,7 +8,7 @@
   <title>事件代理由父级代理</title>
   <style>
     ul {
-      border:20px solid #008c8c
+      border: 20px solid #008c8c
     }
   </style>
 </head>
@@ -34,11 +34,30 @@
     // 用了事件委托后
     window.onload = function () {
       let oUl = document.getElementById('ul1')
-      oUl.onclick = function (e) {
-        console.log('456', e.target.nodeName.toLowerCase());
-        if(e.target.nodeName.toLowerCase() === 'li'){
-          console.log('这时候才触发');
-        }
+      // oUl.onclick = function (e) {
+      //   console.log('456', e.target.nodeName.toLowerCase());
+      //   stopBubble(e || event)
+      //   // if(e.target.nodeName.toLowerCase() === 'li'){
+      //   console.log('这时候才触发');
+      //   // }
+      // }
+
+      oUl.addEventListener('click',function () {
+        console.log('检查一下addEventListener的默认值false是不是冒泡');
+      },false) // 默认是false，是冒泡    为true则是捕获阶段
+
+      // IE独有的有个attachEvent
+      // oUl.attachEvent(onClick,function (){
+      //   console.log('我是IE的方法')
+      // })
+    }
+
+    // 阻止事件冒泡
+    function stopBubble(event) {
+      if (event && event.stopPropagation) {
+        event.stopPropagation()
+      } else { // IE
+        window.event.cancelBubble = true;
       }
     }
   </script>

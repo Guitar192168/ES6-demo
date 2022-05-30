@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+利用了 原型链 和 实例对象没有办法修改构造函数的原型 这两点
+所以需要一个中转函数，这样就不会伤到父级
+<script>
+
+    function inherit(Target, Origin){
+        function F(){} // 首先用中间函数做中转站
+        F.prototype = Origin.prototype; // 让父级的原型的指向，指向中间函数 F
+        Target.prototype = new F()
+        Target.prototype.constructor = Target // 实例对象的constructor指向子类自己
+        Target.prototype.uber = Origin.prototype // 用来记录子类继承的父类是哪个
+    }
+
+
+    Person.prototype.name = '父级的名字'
+    function Person (){
+
+    }
+
+    function Student(){
+
+    }
+
+    inherit(Student,Person)
+    let stu = new Student()
+    console.log(stu.name)
+    console.log(stu.constructor)
+</script>
+</body>
+</html>
