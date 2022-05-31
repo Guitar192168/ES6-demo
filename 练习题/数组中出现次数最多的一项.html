@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = ['a', 'b', 'c', 'a', 'b', 'a', 'a', 'd', 'e', 'e'];
+
+    let obj = {};
+
+    for (let item of arr) {
+        if (obj[item] && obj[item]['name'] == item) {
+            obj[item]['count']++;
+        } else {
+            obj[item] = {
+                name: item,
+                count: 0
+            }
+        }
+    }
+
+
+    obj = Object.values(obj).sort((a, b) => {
+        return b.count - a.count;
+    })
+
+    console.log('最高频的是'+ obj[0]['name'],'次数'+obj[0].count)
+
+
+</script>
+</body>
+</html>

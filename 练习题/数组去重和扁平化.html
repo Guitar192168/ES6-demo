@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="list"></ul>
+
+<script>
+
+    /**
+     *     数组扁平化
+
+
+     /**
+     *   1. 利用Array.prototype.toString  + split + map
+     */
+    var arr = [[1, 2, 2], [3, 4, 5, 5], [6, 7, 8, 9, [11, 12, [12, 13, [14]]]], 10]
+    // let demo = arr.toString().split(',').map(item => Number(item))
+    // console.log(demo)
+
+
+    /**
+     *
+     * 2. 利用递归 + reduce + concat
+     */
+    // Array.prototype.flattened1 = function () {
+    //     return this.reduce((acc, cur) => {
+    //         // console.log(acc, 'acc', cur, 'cur')
+    //         if (Array.isArray(cur)) {//说明是数组
+    //             acc = acc.concat(cur.flattened1())//递归
+    //         } else {
+    //             acc = acc.concat(cur)
+    //         }
+    //
+    //         return acc
+    //
+    //     }, [])
+    // }
+    //
+    // console.log(arr.flattened1())
+
+    /**
+     * 3. 利用拓展运算符  三点运算符...  + some + concat
+     */
+
+    // Array.prototype.flattened2 = function () {
+    //     let arr = [...this];
+    //     while (arr.some(item => Array.isArray(item))) {
+    //         arr = [].concat(...arr)
+    //     }
+    //     return arr;
+    // }
+    //
+    // console.log(arr.flattened2())
+
+    /**
+     * 4. 利用 JSON.stringify + replace + split + map
+     */
+
+    //变成了字符串
+    // arr = JSON.stringify(arr).replace(/([\[|\]])/g,'').split(',').map(item => Number(item))
+    // console.log(arr)
+
+
+    /**
+     *  5.利用Array.prototype.flat方法
+     */
+
+    // flat(depth)
+    // 指定嵌套数组结构应展平至多深的深度级别。默认为1。
+
+    // arr = arr.flat()//直接这样写只扁平化一层
+    // arr = arr.flat(Infinity)
+    // console.log(arr)
+
+    /**
+     * 数组去重
+     *
+     */
+
+        // var a = [1, 1, 2, 4, 2, 3, 2, 5, 3, 5, 5, 3, 6, 4, 2, 3, 3, 3, 3, 4, 42]
+        //
+        // Array.prototype.unique = function () {
+        //     var arrDemo = [];
+        //     var temp = {};
+        //     var length = this.length;
+        //     for (let i = 0; i < length; i++) {
+        //         if (!temp[this[i]]) {
+        //             temp[this[i]] = this[i]
+        //             arrDemo.push(this[i])
+        //         }
+        //     }
+        //     return arrDemo
+        // }
+        //
+        // let b = a.unique()
+        //
+
+
+        // const test = {
+        //         name: 'a',
+        //         demo: function hehe() {
+        //             name:'123'
+        //             console.log('fff')
+        //         },
+        //         a:NaN
+        //     };
+        // // debugger
+        //
+        //
+        // const copyed = JSON.parse(JSON.stringify(test));
+        // test.name = 'test'
+        // console.log('ddd', test, copyed)
+
+    const list = document.querySelector('#list');
+    const fruits = ['Apple', 'Orange', 'Banana', 'Melon'];
+
+    const fragment = document.createDocumentFragment();
+
+    fruits.forEach(fruit => {
+        const li = document.createElement('li');
+        li.innerHTML = fruit;
+        fragment.appendChild(li);
+    });
+
+    list.appendChild(fragment);
+
+    ;
+</script>
+</body>
+</html>

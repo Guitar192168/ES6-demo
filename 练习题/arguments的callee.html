@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // function factorial(num) {
+    //     if (num < 1) {
+    //         return 1
+    //     } else {
+    //         return num * factorial(num - 1)
+    //     }
+    // }
+
+    function factorial(num) {
+        if (num < 1) {
+            return 1
+        } else {
+            return num * arguments.callee(num - 1)
+        }
+    }
+
+    console.log(factorial(4));
+
+    // (function () {
+    //     console.log(1)
+    // }())
+
+
+    (function () {
+        console.log(22)
+    })()
+
+    // (function () {
+    // }())
+    // (function () {
+    // })()
+    // !function () {
+    // }()
+    // - function () {
+    // }()
+    // + function () {
+    // }()
+
+    var test = function (){return 33}()
+    console.log(test)
+
+    
+</script>
+</body>
+</html>

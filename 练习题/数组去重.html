@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var arr = [1, 1, 0, NaN, 0, 0, 1, 2, 3, 3, NaN, NaN, NaN, NaN, NaN,]
+  var arr2 = [1, 1, 0, 0, 0, 1, 2, 3, 3, NaN, NaN, NaN]
+
+  function filterArr(data) {
+    let newArr = [];
+    let temObj = {};
+    let length = data.length
+    for (let i = 0; i < length; i++) {
+      if (!temObj[data[i]]) {
+        // temObj[data[i]] = (typeof data[i]) + i
+        temObj[data[i]] = true
+        // temObj[data[i]] = data[i].toString() + i
+        // console.log(data[i].toString(),  typeof data[i].toString())
+        newArr.push(data[i])
+      }
+    }
+    return newArr
+  }
+
+
+  // 老方法 第三个变量存储起来
+  // function filterArr(data) {
+  //   let newArr = []
+  //   let length = data.length
+  //   let isPushNaN = true
+  //
+  //   for (let i = 0; i < length; i++) {
+  //     if (isPushNaN && isNaN(data[i])) {
+  //       isPushNaN = false
+  //       newArr.push(data[i])
+  //     }
+  //     if (newArr.indexOf(data[i]) === -1 && !isNaN(data[i])) {
+  //       newArr.push(data[i])
+  //     }
+  //   }
+  //
+  //   return newArr
+  // }
+
+  // function filterArr(data) {
+  //   let newArr = []
+  //   let length = data.length
+  //   for (let i = 0; i < length; i++) {
+  //     console.log(newArr, !newArr.includes(data[i]), data[i])
+  //     //includes是ES6方法
+  //     if (!newArr.includes(data[i])) {
+  //       newArr.push(data[i])
+  //     }
+  //   }
+  //
+  //   return newArr
+  // }
+
+  let res = filterArr(arr)
+  console.log(res)
+
+
+  function Es6FilterArr(data) {
+    return Array.from(new Set(data))
+  }
+
+  let res2 = Es6FilterArr(arr2)
+  console.log(res2)
+  //
+  //
+  // var array = [1, '1', NaN, 1, 2, 3, 2, 4, NaN, NaN, NaN, NaN,];
+  // var tmpObj = {};
+  // var result = [];
+  // array.forEach(function (a) {
+  //   var key = (typeof a) + a;
+  //   console.log(key, 'key')
+  //   if (!tmpObj[key]) {
+  //     tmpObj[key] = true;
+  //     result.push(a);
+  //   }
+  // });
+  // console.log(result);
+
+
+</script>
+</body>
+</html>

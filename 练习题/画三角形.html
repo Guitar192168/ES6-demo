@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        #demo {
+            width: 0;
+            height: 0;
+            border-width: 20px;
+            border-style: solid;
+            border-color: red transparent transparent transparent;
+        }
+
+        .demo1 {
+            height: 50%;
+            width: 50%;
+            margin: 0 auto;
+            background-color: pink;
+        }
+
+        .demo2 {
+            height: 50%;
+            width: 50%;
+            float: left;
+            background-color: skyblue;
+        }
+
+        .demo3 {
+            height: 50%;
+            width: 50%;
+            float: right;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+<div id="demo"></div>
+
+<div class="wrap">
+    <h3>li标签空白测试</h3>
+    <ul>
+        <li class="part1"></li><li class="part2"></li><li class="part3"></li><li class="part4"></li>
+    </ul>
+</div>
+
+
+<div class="demo1"></div>
+<div class="demo2"></div>
+<div class="demo3"></div>
+</body>
+</html>

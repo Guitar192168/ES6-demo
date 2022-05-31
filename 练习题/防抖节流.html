@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input class="search" type="text">
+<button class="cancel-btn">取消事件</button>
+<script>
+    var demo = document.querySelector('.search')
+
+
+    var counter = 0;
+
+    function searchChange(e) {
+        counter++;
+        console.log('发送了 ' + counter + ' 次网络请求', this, e.target.value)
+    }
+
+
+    // demo.oninput = searchChange
+
+    /**
+     * 定义一个防抖函数
+     */
+
+    function debounce(fn, delay) {
+        var timer = null;
+        return function () {
+            if (timer) clearTimeout(timer);
+            var _t = this;
+            var _arguments = arguments;
+            timer = setTimeout(function () {
+                fn.apply(_t, _arguments)
+            }, delay)
+            // console.log(timer,'timer')
+        }
+    }
+
+
+    demo.oninput = debounce(searchChange, 500)
+
+    // function debounce(fn, delay) {
+    //     var timer = null;
+    //     var handleFn = function () {
+    //         if (timer) clearTimeout(timer);
+    //         var _t = this;
+    //         var _arguments = arguments;
+    //         timer = setTimeout(() => {
+    //             fn.apply(_t, _arguments)
+    //         }, delay)
+    //
+    //
+    //     }
+    //
+    //     handleFn.cancal = function () {
+    //         if (timer) clearTimeout(timer)
+    //     }
+    //
+    //     return handleFn;
+    // }
+    //
+    // var searchDemo = debounce(searchChange, 500)
+    // demo.oninput = searchDemo;
+    //
+    // var cancalBtn = document.querySelector('.cancel-btn');
+    // cancalBtn.onclick = function (event) {
+    //     searchDemo.cancal();
+    // }
+
+
+</script>
+</body>
+</html>

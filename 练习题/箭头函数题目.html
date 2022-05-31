@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function foo(){
+        let test = () => {
+            console.log(this)
+        }
+        return test
+    }
+
+    let obj1 = {
+        a:1,
+        foo:foo
+    }
+
+    let obj2 = {
+        a:2,
+        foo:foo
+    }
+
+    obj1.foo.call(obj2)()
+    obj1.foo().call(obj2)
+
+</script>
+</body>
+</html>
