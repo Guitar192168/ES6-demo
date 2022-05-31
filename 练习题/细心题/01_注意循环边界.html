@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var arr = [];
+    for (var i = 0; i < 5; i++) {
+      arr.push(function () {
+        console.log(i);
+      })
+    }
+
+    console.log(arr);
+    arr[2]()
+    arr[5]() // 第二个报错，因为arr长度为5，index最大就为4而已。这也能错，不应该。
+  </script>
+</body>
+
+</html>
