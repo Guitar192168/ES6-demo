@@ -1,7 +1,7 @@
 //声明构造函数  promise实例化的时候也接收一个参数
 function Promise(executor) {
     // 添加属性
-    this.PromiseStatus = 'pending'
+    this.PromiseState = 'pending'
     this.PromiseResult = undefined
 
     // 指定回调，就算promise内部是异步任务，等到状态改变了再来执行.then里面的回调方法
@@ -11,19 +11,19 @@ function Promise(executor) {
     // this指向有问题
     // let self = this
     // function resolve(value) {
-    //     self.PromiseStatus = 'fulFilled'
+    //     self.PromiseState = 'fulFilled'
     //     self.PromiseResult =  value
     // }
 
     // function reject(reason) {
-    //     self.PromiseStatus = 'rejected'
+    //     self.PromiseState = 'rejected'
     //     self.PromiseResult = reason
     // }
 
     const resolve = (value) => {
         // 保证状态只能修改一次
-        if (this.PromiseStatus !== 'pending') return
-        this.PromiseStatus = 'fulfilled'
+        if (this.PromiseState !== 'pending') return
+        this.PromiseState = 'fulfilled'
         this.PromiseResult = value
         // if (this.callBack.onResolved) {
         //     this.callBack.onResolved(value)
@@ -35,8 +35,8 @@ function Promise(executor) {
         })
     }
     const reject = (reason) => {
-        if (this.PromiseStatus !== 'pending') return
-        this.PromiseStatus = 'rejected'
+        if (this.PromiseState !== 'pending') return
+        this.PromiseState = 'rejected'
         this.PromiseResult = reason
         // if (this.callBack.onRejected) {
         //     this.callBack.onRejected(reason)
@@ -53,7 +53,7 @@ function Promise(executor) {
         // 同步调用执行器函数
         executor(resolve, reject)
     } catch (e) {
-        // this.PromiseStatus = 'rejected'
+        // this.PromiseState = 'rejected'
         // this.PromiseResult = e
         reject(e)
     }
@@ -98,7 +98,7 @@ Promise.prototype.then = function (onResolved, onRejected) {
         }
 
         // try { 不用再try catch了  执行器函数那里的try catch已经拦截到了
-        if (this.PromiseStatus === 'fulfilled') {
+        if (this.PromiseState === 'fulfilled') {
             setTimeout(() => {
                 // 调用回调函数
                 const res = onResolved(this.PromiseResult)
@@ -128,7 +128,7 @@ Promise.prototype.then = function (onResolved, onRejected) {
         //     reject(e)
         // }
         // console.log(e);
-        if (this.PromiseStatus === 'rejected') {
+        if (this.PromiseState === 'rejected') {
             //调用回调函数
             // const res = onRejected(this.PromiseResult)
             // if (res instanceof Promise) {
@@ -147,7 +147,7 @@ Promise.prototype.then = function (onResolved, onRejected) {
         }
 
 
-        if (this.PromiseStatus === 'pending') {
+        if (this.PromiseState === 'pending') {
             this.callBacks.push({
                 // 这里没替换成callBack是这里用了形参，实参，算是提醒一下还有这种写法也可以拿到PromiseResult
                 onResolved: function (value) {
