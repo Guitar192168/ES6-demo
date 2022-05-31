@@ -14,3 +14,8 @@ setTimeout(() => {
   })
 }, 0)
 
+// html端    promise promise2
+// timer1 
+// promise1
+// timer2 
+// promise2

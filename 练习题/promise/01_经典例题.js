@@ -23,3 +23,12 @@ new Promise(function (resolve) {
     console.log('promise2');
 })
 console.log('script end');
+
+//  'script start'
+//  'async1 start'
+//  'async2'
+//  'promise1'
+//  'script end'
+//  'async1 end' 
+//  'promise2'
+//  'setTimeout'
