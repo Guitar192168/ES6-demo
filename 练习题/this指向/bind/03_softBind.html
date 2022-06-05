@@ -16,6 +16,8 @@
                 // 捕获所有 curried 参数
                 var curried = [].slice.call(arguments, 1);
                 var bound = function () {
+                    console.log('arguments222', arguments, 'obj', obj);
+                    // 没有this或者this为window的时候，把this指向 当前传入softBind的第一个参数
                     return fn.apply((!this || this === (window || global)) ? obj : this,
                         curried.concat.apply(curried, arguments));
                 };
@@ -24,12 +26,23 @@
             };
         }
 
-        function Foo() {
-            this.name = 123
+        // function Foo() {
+        //     this.name = 123
+        // }
+        // let Bar = Foo.softBind(1, 2, 3)
+        // let bar = new Bar(123)
+        // console.log(bar);
+
+        function foo() {
+            console.log(this);
+            console.log(arguments);
         }
-        let Bar = Foo.softBind(1, 2, 3)
-        let bar = new Bar(123)
-        console.log(bar);
+
+        foo.softBind(1, {
+            name: 1
+        }).softBind(2, {
+            age: 18
+        }).softBind(3)() // 这里实际打印的还是Number{1}
     </script>
 </body>
 

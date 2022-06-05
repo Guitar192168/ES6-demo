@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function foo() {
+      console.log(this);
+    }
+
+    // 手写bind。不带传参的版本
+    Function.prototype.bind = function (context) {
+      return () => {
+        this.apply(context)
+      }
+    }
+
+    Function.prototype.bind2 = function (context) {
+      var _t = this
+      return function() {
+        _t.apply(context)
+      }
+    }
+
+    foo.bind(1).bind(2).bind(3)() // 这里实际打印的还是Number{1}
+    console.log('上面是箭头函数的，下面是普通函数的');
+    foo.bind2(1).bind2(2).bind2(3)() // 这里实际打印的还是Number{1}
+  </script>
+</body>
+
+</html>

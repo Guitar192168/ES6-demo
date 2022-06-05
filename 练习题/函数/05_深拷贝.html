@@ -37,7 +37,9 @@
             const toString = Object.prototype.toString
             for (let prop in origin) {
                 if (origin.hasOwnProperty('prop')) {
-                    if (typeof prop === 'object') {
+                    // if (typeof prop === 'object') {
+                    // 确实需要加 null的判断，因为typeof null也是个'object'
+                    if (prop !== null && typeof prop === 'object') {
                         toString.call(prop) === '[object Object]' ? target[prop] = {} : target[prop] = []
                         deepClone(target[prop], origin[prop])
                     } else {
