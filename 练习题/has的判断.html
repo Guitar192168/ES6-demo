@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-<body>
-  <script>
-       const obj = {1: 'a', 2: 'b', 3: 'c'}
-       const set = new Set([1, 2, 3, 4, 5])
-       console.log(obj.hasOwnProperty('1')); // ?
-       console.log(obj.hasOwnProperty(1)); //
-       console.log(set.has('1'));
-       console.log(set.has(1));
 
+<body>
+  <div>
+    继承属性的也不行！
+    <div>哦对了，那明明也是原型的属性。</div>
+  </div>
+  <script>
+    const obj = {
+      1: 'a',
+      2: 'b',
+      3: 'c'
+    }
+    const set = new Set([1, 2, 3, 4, 5])
+    console.log(obj.hasOwnProperty('1')); // true  检查对象上有没有符合条件的键
+    console.log(obj.hasOwnProperty(1)); // true
+    console.log(set.has('1')); //false   set结构是严格潘丹
+    console.log(set.has(1)); //  true
   </script>
 </body>
+
 </html>

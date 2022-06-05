@@ -39,3 +39,4 @@ function deepClone(target, origin) {
 let obj2 = {}
 deepClone(obj2, obj)
 console.log(obj2)
+

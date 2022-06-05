@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div1 {
+            font-size: 12px;
+            /*display: block;*/
+        }
+
+        .div2 {
+            font-size: 12px;
+            /*display: block;*/
+            zoom: 0.6;
+        }
+
+
+        .div3 {
+            font-size: 12px;
+            display: inline-block;
+        }
+
+        .div4 {
+            font-size: 12px;
+            display: inline-block;
+            -webkit-transform: scale(0.6);
+        }
+
+        .div6 {
+            font-size: 12px;
+            display: inline-block;
+        }
+
+        .div6 {
+            font-size: 6px;
+            display: inline-block;
+            -webkit-text-size-adjust: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>第一种方式</div>
+    <div class="div1">我是12px</div>
+    <div class="div2">我是小于12px</div>
+    <div style="color:#008c8c"> zoom: 0.6;</div>
+    <div>zoom的作用是设置元素的缩放比例</div>
+    <hr>
+    <br>
+
+    <div>第二种方式</div>
+    <div class="div3">我是12px，想要小于12px必须转换为可以对宽高进行定义的元素生效，所以要把div元素转换为行内块</div>
+    <div class="div4">我是小于12px的</div>
+    <div style="color:#008c8c"> display: inline-block;-webkit-transform: scale(0.6);</div>
+
+    <hr>
+    <br>
+    <div>第三种方式</div>
+    <div style="color:#008c8c">
+        <div>
+            -webkit-text-size-adjust:none;
+        </div>
+        CSS 控制将一些手机或平板设备上使用的文本溢出算法（text inflation algorithm）
+    </div>
+    <div>
+        ??自2013年Chrome27之后-webkit-text-size-adjust就无效了；
+        放屁，还没失效呢
+    </div>
+    <!--该属性用来设定文字大小是否根据设备(浏览器)来自动调整显示大小-->
+    <!--percentage:字体显示的大小-->
+    <!--auto:默认，字体大小会跟着设备/浏览器来进行调整-->
+    <!--none:字体不会跟着浏览器大小自动调整-->
+    <div class="div5">我是12px，想要小于12px必须转换为可以对宽高进行定义的元素生效，所以要把div元素转换为行内块</div>
+    <div class="div6">我是小于12px的</div>
+    <div></div>
+
+
+</body>
+
+</html>
