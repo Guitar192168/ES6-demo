@@ -2,11 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>也就没有arguments.callee</title>
 </head>
 <body>
-    
+<script>
+    let num = 1;
+
+    function f() {
+        console.log(num)
+    }
+
+    function f1() {
+        var num = 2;
+        f()
+    }
+
+    f1()
+
+    // let fn = (a, b) => {
+    let fn = (...rest) => {
+        console.log(rest);
+        // 没有arguments
+        // console.log(arguments)
+        // 也就没有arguments.callee
+    }
+    fn(1, 2)
+
+</script>
 </body>
 </html>

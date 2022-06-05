@@ -28,3 +28,6 @@ let f = a.splice(1,2,4,5,6,7,8,9)
 console.log(f,'f')
 console.log(a,'a')
 
+// reverse()
+// sort()
+
