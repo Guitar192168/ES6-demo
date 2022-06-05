@@ -19,7 +19,8 @@
                     console.log('arguments222', arguments, 'obj', obj);
                     // 没有this或者this为window的时候，把this指向 当前传入softBind的第一个参数
                     return fn.apply((!this || this === (window || global)) ? obj : this,
-                        curried.concat.apply(curried, arguments));
+                        // curried.concat.apply(curried, arguments));
+                        curried.concat(...arguments));
                 };
                 bound.prototype = Object.create(fn.prototype);
                 return bound;
