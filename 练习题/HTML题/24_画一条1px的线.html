@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=0.5"> -->
+
+  <title>Document</title>
+  <style>
+    #line {
+      /* border-bottom: 1px solid black; */
+      height: 1px;
+      background-color: #008c8c;
+    }
+
+    #line1 {
+      /* border-bottom: 1px solid black; */
+      height: 1px;
+      transform: scaleY(0.5);
+      transform-origin: 50% 100%;
+      background-color: #008c8c;
+    }
+
+    #line2 {
+      height: 1px;
+      background: linear-gradient(0deg, #fff, #000);
+    }
+
+    #line3 {
+      border-bottom: 1px solid #000;
+    }
+
+    #line4 {
+      box-shadow: 0 1px 0 0;
+      height: 1px;
+      background-color: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>1px粗线</h1>
+  <div id="line"></div>
+  <h4>方法一：transform: scaleY(0.5)
+    会发虚。建议用
+    transform-origin: 50% 50%;
+    没懂：
+    transform-origin CSS 属性让你更改一个元素变形的原点。
+  </h4>
+  <div id="line1"></div>
+  <h4>方法二：渐变
+    linear-gradient(0deg, #fff,
+    #000)的意思是：渐变的角度从下往上，从白色#fff渐变到黑色#000，
+    而且是线性的，在高清屏上，1px的逻辑像素代表的物理（设备）像素有2px，
+    由于是线性渐变，所以第1个px只能是#fff，而剩下的那个像素只能是#000，
+    这样就达到了画一半的目的。实际效果和使用缩放类似。
+  </h4>
+  <div id="line2"></div>
+  <h4>方法三
+    设置meta的初始值。
+    initial-scale=0.5
+  </h4>
+  <div id="line3"></div>
+  <h4>box-shadow 第二个参数是在Y方向的偏移量</h4>
+  <h4>这个方法在Chrome和Firefox都非常完美，但是Safari不支持小于1px的boxshadow，所以完全没显示出来了。</h4>
+  <div id="line4"></div>
+</body>
+
+</html>
