@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>NativeObj Example</title>
+  <script type="text/javascript">
+    var bitmap1 = null,
+      bitmap2 = null;
+    // H5 plus事件处理
+    function plusReady() {
+      bitmap1 = new plus.nativeObj.Bitmap('bmp1');
+      bitmap1.load('bmp1.png', function () {
+        console.log('bmp1.png load success!');
+      }, function (e) {
+        console.log('bmp1.png load failed! ' + JSON.stringify(e));
+      });
+      bitmap2 = new plus.nativeObj.Bitmap('bmp2');
+      bitmap2.load('bmp2.png', function () {
+        console.log('bmp2.png load success!');
+      }, function (e) {
+        console.log('bmp2.png load failed! ' + JSON.stringify(e));
+      });
+    }
+    if (window.plus) {
+      plusReady();
+    } else {
+      document.addEventListener("plusready", plusReady, false);
+    }
+    // 原生动画
+    function nativeAnimation() {
+      // 开始动画
+      var options = {
+        type: 'pop-out',
+        duration: 1000
+      };
+      plus.nativeObj.View.startAnimation(options, {
+        bitmap: bitmap1
+      }, {
+        bitmap: bitmap2
+      }, function () {
+        console.log('plus.nativeObj.View.startAnimation动画结束');
+        // 关闭原生动画
+        plus.nativeObj.View.clearAnimation();
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <button onclick="nativeAnimation()">原生窗口动画</button><br />
+</body>
+
+</html>
