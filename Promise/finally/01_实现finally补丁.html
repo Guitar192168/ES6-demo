@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
+<div>
+    finally 避免了同样的语句需要在then和catch里面都写一遍，适合做loading取消。目前已知的
+</div>
+<div>
+    没有参数，不接收任何参数。因为无法知道promise的最终状态
+    <h2>它仅用于无论最终结果如何都要执行的操作</h2>
+</div>
+<div>
+    与Promise.resolve(2).then(() => {}, () => {})（resolved 的结果为undefined）不同，Promise.resolve(2).finally(() => {}) resolved 的结果为 2。
+    同样，Promise.reject(3).then(() => {}, () => {}) (fulfilled 的结果为undefined), Promise.reject(3).finally(() => {}) rejected 的结果为 3。
+</div>
 <script>
     // Promise.resolve(123).then(res => console.log(res))
     Promise.prototype.finally = function (callback) {
@@ -18,6 +29,7 @@
             })
         })
     }
+    // 在浏览器会有打印的内容 resolved 的结果为 2
     Promise.resolve(123).finally(res => console.log(res))
     Promise.resolve(2).finally(() => {})
 </script>
