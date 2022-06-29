@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Promise.resolve(123).then(res => console.log(res))
+    Promise.prototype.finally = function (callback) {
+        return this.then(res => {
+            // console.log(res, '123')
+            // console.log(this.constructor)
+            // return this.resolve(callback()).then( value =>{
+            return this.constructor.resolve(callback()).then(value => {
+                // return value
+                return res
+            })
+        })
+    }
+    Promise.resolve(123).finally(res => console.log(res))
+    Promise.resolve(2).finally(() => {})
+</script>
+</body>
+</html>
