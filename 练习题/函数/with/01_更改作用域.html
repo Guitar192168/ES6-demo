@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>严格模式: es5的严格模式
+在浏览器上跑的代码基本上是es3.0和es5.0部分新增的功能
+    <h3>
+        有冲突时，以es3.0 为主
+    </h3>
+    <h3>但是如果开启了 严格模式 'use strict'
+        有冲突时，会以es5 为主
+    </h3>
+</h2>
+<h2>
+    with: 让括号里的obj对象 处于 with 代码块作用域链的最顶端。
+    <h3>缺陷：太强大反正不敢乱用，修改作用域链，性能消耗较大</h3>
+</h2>
+<h2>严格模式下不可用</h2>
+<script>
+    let obj = {
+        name: '123'
+    }
+
+    let name = '456'
+
+    function foo() {
+        console.log(name)
+
+        // 加了with，并传入一个对象。则会对with包含的代码块的作用域链进行修改。
+        // 让括号里的obj对象 处于 with 代码块作用域链的最顶端。
+        with (obj) {
+            console.log(name)
+        }
+    }
+
+    foo()
+</script>
+</body>
+</html>
