@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>caller 是构造函数的属性    是在函数执行时触发的。 引用 调用当前函数的函数</h2>
+<h2>如果是在顶层的javascript环境下执行的，则caller指向null</h2>
+<h2>也可以通过arguments.callee 先指向当前函数，然后再去 .caller</h2>
+
+<h3>!!严格模式下这俩都不能用了 with写法也不能用</h3>
+<script>
+    function fn1() {
+        console.log(arguments.callee.caller)
+        console.log(fn1.caller)
+    }
+
+    function fn2() {
+        fn1()
+    }
+
+    fn2()
+
+    // 尝试一下顶层的 调用者null
+    function fn3() {
+        console.log(arguments.callee.caller)
+    }
+
+    fn3()
+
+    // demo 通过使用caller 查询调用链
+    function func() {
+        let caller = func.caller;
+        while (caller != null) {
+            console.log(caller.name);
+            caller = caller.caller;
+        }
+    }
+
+    function func1() {
+        func();
+    }
+
+    function func2() {
+        func1();
+    }
+
+    function func3() {
+        func2();
+    }
+
+    func3();
+</script>
+</body>
+</html>

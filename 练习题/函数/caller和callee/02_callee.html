@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>callee是arguments的属性</h2>
+<script>
+  function foo(){
+    console.log(arguments.callee)
+    console.log(arguments.callee.caller) // 可以拿到调用该当前函数的   函数
+  }
+
+  foo()
+
+</script>
+<h2>严格模式下不可用</h2>
+<script>
+  'use strict'
+  function bar2(){
+    console.log(arguments.callee)
+  }
+  bar2()
+</script>
+</body>
+</html>
