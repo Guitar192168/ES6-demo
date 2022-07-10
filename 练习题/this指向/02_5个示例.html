@@ -20,6 +20,9 @@
         console.log(foo.bar());
         console.log((foo.bar)());
         console.log((foo.bar = foo.bar)());
+        // 这里 false ||    和
+        //  (  , )     的效果
+        // 都跟    (foo.bar = foo.bar)  一样
         console.log((false || foo.bar)());
         console.log((foo.bar, foo.bar)());
     </script>

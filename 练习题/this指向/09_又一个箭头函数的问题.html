@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var obj = {
+      fn: function (params) {
+        // 箭头函数的this指向所在父级作用域的this      指向的fn
+        // 且this不能被修改
+        var f = () => this;
+        return f
+      }
+    }
+
+    var fn = obj.fn()
+    console.log(fn() === window); // false
+    console.log(fn() === obj); // true
+  </script>
+</body>
+</html>
