@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function generateN2(n) {
+      let left = 0,
+      top = 0,
+      right = n,
+      bottom = n;
+
+      // let left = 0;
+      // top = 0;
+      // right = n;
+      // bottom = n;
+      let res = []
+
+      for (let a = 0; a < n; a++) {
+        let item = []
+        for (let b = 0; b < n; b++) {
+          item[b] = 0
+        }
+        res.push(item)
+      }
+
+
+      let x = 0; // 表示横向，第几个数组。  
+      let y = 0; // 表示 纵向，数组里第几项。
+      let count = 0
+      let mode = 'right'
+      while (count < n * n) {
+        count++
+        res[x][y] = count;
+
+
+        if (mode === 'right' && y === right - 1) {
+          // 当前行已经用过了。top要变
+          top++
+          mode = "bottom"
+        }
+
+        if (mode === "bottom" && x === bottom - 1) {
+          right--
+          mode = "left"
+        }
+
+        if (mode === "left" && y === left) {
+          bottom--
+          mode = "top"
+        }
+
+        if (mode === "top" && x === top) {
+          left++
+          mode = "right"
+        }
+
+
+        switch (mode) {
+          case 'right':
+            y++
+            break;
+          case 'bottom':
+            x++
+            break;
+          case 'left':
+            y--
+            break;
+          case 'top':
+            x--
+            break;
+        }
+      }
+
+      return res
+    }
+
+
+    console.log(generateN2(2))
+    console.log(generateN2(3))
+    console.log(generateN2(4))
+    console.log(generateN2(5))
+  </script>
+</body>
+
+</html>

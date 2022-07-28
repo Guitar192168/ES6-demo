@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-        function generateMatrix(n){
+        function generateMatrix(n) {
             //各个方向的转向标志
             let top = 0,
                 left = 0,
@@ -16,39 +18,40 @@
                 bottom = n;
             let res = []
             // 先定义好数组，且每一项用0占位
-            for(let a = 0;a < n; a++){
+            for (let a = 0; a < n; a++) {
                 let temp = []
-                for(let b = 0;b < n;b++){
+                for (let b = 0; b < n; b++) {
                     temp[b] = 0
                 }
                 res.push(temp)
             }
 
-            let i = 0,j = 0,count = 0,mode = 'right';
-            while(count < n*n){
-                count ++ 
+            let i = 0,
+                j = 0,
+                count = 0,
+                mode = 'right';
+            while (count < n * n) {
+                count++
                 res[i][j] = count
 
                 //因为是顺时针，所以放心依次是right,bottom,left,top.... 
-
-
                 // 当右向走了right-1次时，就会转向
-                if(mode === 'right' && j === right - 1){
-                    top++  // 这一轮走top时，因为向右走已经占了一行，所以top++
+                if (mode === 'right' && j === right - 1) {
+                    top++ // 这一轮走top时，因为向右走已经占了一行，所以top++
                     mode = 'bottom'
                 }
                 // 当下向走了bottom-1次时，就会转向
-                if(mode === 'bottom' && i === bottom - 1){
+                if (mode === 'bottom' && i === bottom - 1) {
                     right-- // 下一轮再走right时，因为向下走已经占了一行，所以right--
                     mode = 'left'
                 }
-                 // 当左向走了left次时，就会转向
-                if(mode === 'left' && j === left){
+                // 当左向走了left次时，就会转向
+                if (mode === 'left' && j === left) {
                     bottom-- // 下一轮再走bottom时，因为向左走已经占了一行，所以bottom--
                     mode = 'top'
                 }
-                 // 当左向走了top次时，就会转向
-                if(mode === 'top' && i === top){
+                // 当左向走了top次时，就会转向
+                if (mode === 'top' && i === top) {
                     left++ // 下一轮再走left时，因为向上走已经占了一行，所以left++
                     mode = 'right'
                 }
@@ -71,6 +74,11 @@
 
             return res
         }
+        console.log(generateMatrix(2));
+        console.log(generateMatrix(3));
+        console.log(generateMatrix(4));
+        console.log(generateMatrix(5));
     </script>
 </body>
+
 </html>
