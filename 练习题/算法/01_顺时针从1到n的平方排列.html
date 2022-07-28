@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var generateMatrix = function (n) {
+      let row = 0;
+      let col = 0;
+      let m = n
+      let n1 = n;
+      const res = [];
+      for (let k = 0; k < n; k++) {
+        let temp = [];
+        for (let k2 = 0; k2 < n; k2++) {
+          temp.push(0)
+        }
+        res.push(temp)
+      }
+      let i = 0,
+        j = 0;
+      let mode = 'right';
+      let count = 0;
+      while (count < n * n) {
+        count++;
+        res[i][j] = count;
+
+        // 路径
+        if (mode === 'right' && j === n1 - 1) {
+          row++;
+          mode = 'bottom';
+        }
+        if (mode === 'bottom' && i === m - 1) {
+          n1--;
+          mode = 'left';
+        }
+        if (mode === 'left' && j === col) {
+          m--;
+          mode = 'top';
+        }
+        if (mode === 'top' && i === row) {
+          col++;
+          mode = 'right';
+        }
+        switch (mode) {
+          case 'right':
+            j++;
+            break;
+          case 'left':
+            j--;
+            break;
+          case 'top':
+            i--;
+            break;
+          case 'bottom':
+            i++;
+            break;
+        }
+      }
+      return res;
+    };
+    console.log(generateMatrix(5));
+  </script>
+</body>
+
+</html>

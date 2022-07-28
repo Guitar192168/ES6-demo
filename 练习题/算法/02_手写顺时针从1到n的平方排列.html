@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function generateN2(n) {
+      let heng = n; // 横向
+      let zong = n; // 纵向
+      let initX = 0; // 初始X
+      let initY = 0; // 初始Y
+      const res = []
+      for (let i = 0; i < n; i++) {
+        let item = []
+        for (let i2 = 0; i2 < n; i2++) {
+          item[i2] = 0
+        }
+        res.push(item)
+      }
+
+
+      let x = 0;
+      let y = 0;
+      let count = 0;
+      let mode = 'right'
+
+      while (count < n * n) {
+        // x外层数据第x项，y是内层数组第y项
+        count++
+        res[x][y] = count;
+
+
+        if (mode === 'right' && (y === zong - 1)) { // 纵向
+          // x++;
+          // 第一行已经走完了，不需要了第一行了  row应该减一 错误写法
+          // heng--;
+          // 第一行已经走完了，不需要了第一行了  横向的起步应该变化
+          initX++;
+          mode = 'bottom'
+        }
+
+        if (mode === 'bottom' && (x === heng - 1)) {
+          // y--;
+          // col--;
+          // 准备向左拐，与此同时这一列已经不能用了 纵向的终点站不能用了
+          zong--;
+          mode = 'left'
+        }
+
+        if (mode === 'left' && y === initY) {
+          // 最底部一列不需要了
+          heng--
+          mode = 'top'
+        }
+
+        if (mode === 'top' && x === initX) {
+          // initX++;
+          // 最左边一列不需要了
+          initY++;
+          mode = 'right'
+        }
+
+
+        switch (mode) {
+          case 'right':
+            y++;
+            break;
+          case 'bottom':
+            x++;
+            break;
+          case 'left':
+            y--;
+            break
+          case 'top':
+            x--;
+            break
+        }
+      }
+
+
+      return res
+    }
+
+    console.log(generateN2(3));
+    console.log(generateN2(4));
+    console.log(generateN2(5));
+  </script>
+</body>
+
+</html>

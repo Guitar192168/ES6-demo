@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // a变量提升到了全局window，但是赋值没有提升
+    //  ！！这里虽然是字符串"a", 但是有in, 表示的是 window[a]这种。
+    // 判断的是 字符串"a"是否是window的属性。因为a变量提升了，所以肯定是window的属性，然后a为undefine
+    if(!("a" in window)){
+      var a = 1
+    }
+    console.log(a);
+  </script>
+</body>
+</html>
