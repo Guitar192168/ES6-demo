@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .pie {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: transparent;
+      position: relative;
+
+    }
+
+    .circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 100;
+      transform: translate(-50%, -50%);
+      width: 35px;
+      height: 35px;
+      background: #008c8c;
+      border-radius: 50%;
+    }
+
+    .left,
+    .right {
+      width: 25px;
+      height: 50px;
+      float: left;
+      overflow: hidden;
+    }
+
+    .left {
+      border-radius: 50px 0 0 50px;
+
+    }
+
+    .right {
+      border-radius: 0 50px 50px 0;
+
+    }
+
+    .left-deg,
+    .right-deg {
+      width: 25px;
+      height: 50px;
+      background: orange;
+    }
+
+    .left-deg {
+      transform-origin: right center;
+      transform: rotate(-0deg);
+    }
+
+    .right-deg {
+      transform-origin: left center;
+      transform: rotate(-50deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="pie">
+    <div class="circle"></div>
+    <div class="left">
+      <div class="left-deg"></div>
+    </div>
+    <div class="right">
+      <div class="right-deg"></div>
+    </div>
+  </div>
+</body>
+
+</html>
